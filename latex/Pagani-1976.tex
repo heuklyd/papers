@@ -1,0 +1,774 @@
+\documentclass[a4paper,12pt,leqno]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[width=13cm,height=21cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{bbm}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{open}[proposition]{Open problem}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{example}[proposition]{Example}
+
+\numberwithin{equation}{section}
+
+% Used to rename "Problem A"
+\newtheorem{innerproblem}{Problem}
+\newenvironment{problem}[1]
+{\renewcommand\theinnerproblem{#1}\innerproblem}
+{\endinnerproblem}
+
+\crefname{equation}{eq.}{eqs.}
+\crefname{section}{Sec.}{Secs.}
+\crefname{theorem}{Th.}{Ths.}
+\crefname{problem}{Pb}{Pbs}
+
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+\title{On Forward-Backward Parabolic Equations \\ in Bounded Domains}
+\author{Carlo Domenico Pagani (Milano)\texorpdfstring{\thanks{This research was supported by the ``Contratto di ricerca sulle equazioni funzionali'' from the C.N.R.}}{}}
+\date{}
+
+\DeclareMathOperator{\Ker}{Ker}
+
+\begin{document}
+
+\noindent
+Bollettino U.M.I.\ (5) 13-B (1976), 336-354
+
+{\let\newpage\relax\maketitle}
+
+\maketitle
+
+\renewcommand*\abstractname{Sunto}
+
+\begin{abstract}
+	Si studia il primo problema di valori al contorno per l'equazione $k(x) u_{y}-a(x, y) u_{x x}+b(x, y) u_{x}+c(x, y) u=f(x, y)$ nel rettangolo $A<x<B$, $0<y<L$ $(A<0, B>0)$
+	; il coefficiente $k(x)$ ha lo stesso segno di $x$, e $a(x, y)>0$. Si dimostra l'esistenza di un'unica soluzione $u$ dotata di derivate $u_{y}$ e $u_{xx}$ di quadrato sommabile con opportuni pesi.
+\end{abstract}
+
+\section{Introduction}
+
+Let us consider the second order linear equation in two variables $x, y$:
+\begin{equation*}
+	a_{11} u_{x x}+2 a_{12} u_{x y}+a_{22} u_{y y}+a_{1} u_{x}+a_{2} u_{y}+a u+f=0
+\end{equation*}
+It is well-known that, if $a_{11} a_{22}=a_{12}^{2}$ in a region $\Omega$, such equation (which is called parabolic in $\Omega$ ) can be put in a ``canonical form''
+\begin{equation*}
+	u_{xx}+\alpha u_{y}+\beta u_{y}+\gamma u+\delta=0
+\end{equation*}
+Usually, when speaking of parabolic equations, one assumes that $\beta$ keeps the same sign through $\Omega$; we want to study here the opposite case: we will assume that $\beta$ vanishes on and changes sign through a line $\Gamma$ contained in~$\Omega$. Then, under suitable regularity assumptions on the coefficients of the equation and on $\Gamma$, we can choose new coordinates in such a way that $\Gamma$ coincides with (a portion of) the $y$-axis ($\Gamma$ is supposed not to be tangent to a characteristic in any point).
+Thus we will consider equations of the following form
+\begin{equation} \label{1.1}
+	\mathfrak{L}u \equiv k(x) u_{y}-a(x, y) u_{xx}+b(x, y) u_{x}+c(x, y) u=f(x, y).
+\end{equation}
+The coefficients of the equation are real-valued, measurable functions defined in $\Omega$; $k(x)$ has different signs for $x>0$ and $x<0$ and $a(x, y)>0$.
+We will take as $\Omega$ the rectangle
+\begin{equation*}
+	\Omega \equiv\{(x, y); A<x<B, 0<y<L; A<0, B>0\}.
+\end{equation*}
+In the Appendix we allow $\Omega$ to be a strip or a half-plane. Of course, we could consider more general domains than rectangles; then some problems arise, which are outside the scope of this paper; such problems are mainly of two kinds: i) far from the $y$-axis, the equation is parabolic in the ordinary sense; then the problem is to study a parabolic equation in noncylindrical domains; ii) in a neighbourhood of the $y$-axis, if the boundary of $\Omega$ is not characteristic (i.e., it is not a horizontal segment), then the problem is, in some sense, easier than the one considered here: the results given in \cite{zbMATH03245768} for a general elliptic-parabolic equation can be applied. Other questions arise if the boundary of $\Omega$ partly coincides with the singular line $\Gamma$.
+
+For \cref{1.1} we want to study the first boundary value problem. It is convenient, by making use of symbols which are popular in the theory of elliptic-parabolic equations, to subdivide the boundary $\Sigma$ of $\Omega$ into different pieces: $\Sigma_{3}$ is the set of non-characteristic points of the boundary, i.e.\ the segments $\{(x, y); 0<y<L; x=A \text{ or } x=B\}$; among the characteristic points, we will call $\Sigma_{2}$ the segments $\{(x, y); y=0,0<x<B \text{ or } y=L, A<x<0\}$, $\Sigma_{1}$ is $\{(x, y); y=0, A<x<0 \text{ or }y=L, 0<x<B\}$ and $\Sigma_{0}$ denotes the pair of points: $(0,0)$ and $(0, L)$. Then the first boundary value problem consists in finding a solution, in $\Omega$, of \cref{1.1} which assumes given values on $\Sigma_{2} \cup \Sigma_{3}$. We will look for solutions $u$ which are, together with their (generalized) derivatives $u_{x}$, $u_{x x}$, $u_{y}$ square summable in $\Omega$ with suitable weights.
+
+Problems of this kind have been studied by several authors; for an abundant bibliography one can see the book \cite{radkevic1973second}. It has to be noted that the problem considered above can not be treated as in \cite{zbMATH03245768}, where the first boundary value problem for general elliptic-parabolic equations is studied: for one of the main assumptions in \cite{zbMATH03245768} is that $\Sigma_{2} \cup \Sigma_{3}$ is closed, which is clearly false in our case. On the other hand, examples of equations of the form \eqref{1.1} which are to be studied, e.g., in a strip $0<y<L$,$-\infty<x<+\infty$, are encountered in the theory of brownian motion and in kinetic theory; the probabilistic or kinetic interpretation of equation \eqref{1.1} is discussed in the introduction of \cite{zbMATH03479447}.
+
+Under some regularity assumptions on the coefficients of \cref{1.1}, we will prove an existence and uniqueness theorem for the solution of the first boundary value problem. The proof consists of two fundamental steps: i) existence and uniqueness of a ``weak'' solution; ii) regularization. The main tool in the first step is a theorem of Lions (a refinement of the classical lemma of Lax and Milgram). The second part of the proof rests upon an ``a priori'' estimate of the highest order norm of the solution in terms of the norm of the known functions and of the zero order norm of the solution itself. Such an estimate is derived from the results achieved in \cite{zbMATH03479447} for a sample equation, under weak hypotheses on the coefficients.
+
+First, in \cref{S2}, we will give an account of the function spaces used through the paper and a trace theorem will be proved. In \cref{S3} the main inequality will be derived; in \cref{S4}, after the definition of ``weak'' solution, the existence and uniqueness of such a solution will be proved; finally, in \cref{S5}, we will show that this ``weak'' solution is the actual solution of our problem.
+
+\section{Function spaces} \label{S2}
+
+Let us recall briefly the definitions of some function spaces already used in \cite{zbMATH03479447}, which we need in the following. $R^{2}$ will denote the whole plane; with reference to an orthogonal cartesian system $(0, x, y)$, $X_{+(-)}$ will denote the half-plane $x>0$ ($x<0$). $\Omega$ is the rectangle $A<x<B$ ($A<0, B>0$), $0<y<L$; $\Omega_{1}$ is the half-plane $y>0$, $\Omega_{2}$ the half-plane $y<L$; $\Omega_{3}$ is the half-strip $0<y<L$, $x>A$, $\Omega_{4}$ is the half-strip $0<y<L$, $x<B$.
+
+$R$ denotes the real line, $R_{+(-)}$ the positive (negative) halfline. 
+
+$C_{0}^{\infty}\left(R^{2}\right)$ is the space of infinitely differentiable functions, defined on $R^{2}$, with compact support. $C_{0}^\infty(\bar{G})$, where $G$ is an open subset of $R^{2}$, is the space of the restrictions to $\bar{G}$ (the closure of $G$) of functions belonging to $C_{0}^{\infty}\left(R^{2}\right)$.
+
+$Z(G)$ is the set of complex valued functions $u$, defined on $G$, such that $u$, $u_{x}$, $u_{xx}$, $x u_{y}$ (these derivatives are taken in the sense of distributions) belong to $L^{2}(G)$. $Z(G)$ will be equipped with the norm
+\begin{equation}
+	\|u\|_{Z(G)}:= \left\{ 
+	\iint_G \left(
+	x^2 |u_y|^2 + |u_{xx}|^2 + |u_x|^2 + |u|^2
+	\right) dx dy
+	\right\}^{\frac 1 2};
+\end{equation}
+let us notice also that $\mathcal{C}_{0}^{\infty}(\bar{G})$ is dense in $Z(G)$, provided $G$ is sufficiently smooth\footnote{It suffices for $G$ to have the restricted cone property; this is a consequence of the Calderon's extension theorem (see \textsc{Agmon} \cite{zbMATH03229907}, see.\ 11, th.\ 11.12). We will use this remark later, when we will take as $G$ the rectangle $\Omega$.}.
+
+
+$W_{+}\left(\Omega_{1}\right)$ is a subset of $Z\left(\Omega_{1}\right)$ defined by functions $u$ with the properties:
+\begin{equation}
+	u \in Z\left(\Omega_{1}\right),
+\end{equation}
+\begin{equation}
+	\underset{h > 0 ~~ 0<y<h}{\operatorname{inf~~ess~sup}} \int_{0}^{\infty} x^{2}|u|^{2} d x<\infty.
+\end{equation}
+Analogously $W_{-}\left(\Omega_{2}\right)$ is defined by
+\begin{equation}
+	u \in Z\left(\Omega_{2}\right),
+\end{equation}
+\begin{equation}
+	\underset{h < L~~ h<y<L}{\operatorname{inf~~ess~sup}} \int_{-\infty}^{0} x^{2	}|u|^{2} d x<\infty.
+\end{equation}
+These spaces will be equipped with the norms
+\begin{equation}
+	\|u\|_{W_{+}(\Omega_1)}^{2}
+	= \|u\|_{Z(\Omega_1)}^2 + \underset{h > 0 ~~ 0<y<h}{\operatorname{inf~~ess~sup}} \int_{0}^{\infty} x^{2}|u|^{2} d x
+\end{equation}
+and $\|u\|_{W_{-}(\Omega_2)}^{2}$ defined in analogous manner.
+
+We will consider also the usual anisotropic Sobolev spaces $W^{1,0}(G)$ and $W^{2,1}(G)$.
+
+Moreover, if $I$ is an open subset of $R$, we define $\mathscr{H}^1(I)$: the set of functions $\varphi$ defined on $I$, such that the norm
+\begin{equation}
+	\|\varphi\|_{\mathscr{H}^1(I)} =\left\{ \int_{I}\left[\left(|x|+x^{2}\right)|\varphi|^{2}+\left|x \| \varphi'\right|^{2}\right] d x 
+	\right\}^{\frac{1}{2}}
+\end{equation}
+is finite. Some remarks about $\mathscr{H}^1$ are given in \cite{zbMATH03479447}. 
+We will consider only bounded sets $I$; then the term $\int_I x^{2}|\varphi|^{2} d x$ in the definition of $\mathscr{H}^1(I)$ may be dropped (see, however, the Appendix); but we retain this definition, which is the same as used in  \cite{zbMATH03479447}. We will also use the spaces $H^s(I)$ ($s$~real).
+
+\newpage
+
+It follows from well-known theorems (see \cite{zbMATH03353865} Chp.\ 4, vol.\ II) that the map $u \to u(B,\cdot)$, $B > 0$, from $Z(\text{half-plane~} x > B) \to H^{\frac 3 4}(R)$ is linear, bounded and surjective. 
+In \cite{zbMATH03479447} it is also proved that the (linear and bounded) map $u \rightarrow u(0, \cdot)$ from $Z\left(X_{+}\right) \to H^{\frac 1 2}(R)$ is surjective. 
+Moreover it is shown (and it is one of the main results proved in \cite{zbMATH03479447}) that the map $u \rightarrow u(\cdot, 0)$ from $W_{+}\left(\Omega_{1}\right) \rightarrow \mathscr{H}^1(R_+)$ is linear, bounded and surjective. 
+Now, by using these results, we can prove the following
+
+\begin{theorem} \label{TH:2.1}
+	The operator
+	\begin{equation} \label{2.8}
+		C_{0}^{\infty}(\bar{\Omega}) \ni u \rightarrow u|_{\Sigma_2 \cup \Sigma_{3}}
+	\end{equation}
+	is a densely defined bounded operator from $Z(\Omega)$ into
+	\begin{equation*}
+		\begin{gathered}
+			F \equiv \Big\{ (h, \varphi): h \in \mathscr{H}^1\left(\Sigma_{2}\right), 
+			\varphi \in H^{\frac 3 4 }\left(\Sigma_{3}\right); 
+			h(A, L)=\varphi(A, L), h(B, 0)= \\
+			=\varphi(B, 0) \Big\}.
+		\end{gathered}
+	\end{equation*}
+	Let
+	\begin{equation*}
+		\gamma: Z(\Omega) \rightarrow F
+	\end{equation*}
+	be its (uniquely defined) linear bounded extension. Then the range of $\gamma$ is exactly $F$ and $y$ is an isomorphism between $Z(\Omega)/\Ker \gamma$ and $F$.
+\end{theorem}
+
+\begin{proof}
+	The boundedness of \eqref{2.8} follows directly from the boundedness of the maps we have recalled above. In order to prove surjectivity, let us construct a funetion $w \in Z(\Omega)$ such that $\left.w\right|_{\Sigma_2}=h$, $\left.w\right|_{\Sigma_{3}}=\varphi$ (in the sense of traces), where $h$ and $\varphi$ are given functions, $h \in \mathscr{H}^1\left(\Sigma_{3}\right)$, $\varphi \in H^{2}\left(\Sigma_{3}\right)$, satisfying the compatibility conditions:
+\begin{equation} \label{2.9}
+	h(A, L)=\varphi(A, L); \quad h(B, 0)=\varphi(B, 0)
+\end{equation}
+Let $\left\{\mathcal{O}_{i}\right\}(i=1, \ldots, 4)$ be an open bounded covering of $\Omega$ with the following properties:
+
+$\mathcal{O}_{1}$ contains the origin and does not contain any point of $\Sigma_{3}$ nor the point $(0, L)$.
+
+$\mathcal{O}_{2}$ contains the point $(0, L)$ and does not contain any point of $\Sigma_{3}$ nor the origin.
+
+\begin{equation*}
+	\mathcal{O}_{3} \subset X_{-}, \quad
+	\mathcal{O}_{4} \subset X_{+}, \quad
+	\mathcal{O}_{3} \cup \mathcal{O}_{4} \supset \Sigma_{3}
+\end{equation*}
+
+\newpage
+
+Let $\left\{\alpha_{i}\right\}$ be a partition of unity on the rectangle $\Omega$ such that: 
+\begin{equation*}
+	\alpha_{i} \in C^{\infty}\left(R^{2}\right),
+	\operatorname{spt} \alpha_{i} (\text{the support of } \alpha_{i}) \subset \mathcal{O}_{i}, \sum_{i=1}^{4} \alpha_{i}=1 \text{ on } \Omega.
+\end{equation*}
+Then, let us take four functions, $\left\{w_{i}\right\}$ say, with the following properties:
+
+$w_{1} \in W_{+}\left(\Omega_{1}\right)$, $w_{1}(\cdot, 0)=h_{1}$ on the half-line $y=0$, $x>0$; here ${h}_{1}$ is so chosen that $h_{1} \in \mathscr{H}^1(R)$ and it equals $h$ on $\Sigma_{2} \cap \mathcal{O}_{1}$. 
+
+$w_{2} \in W_{-}\left(Q_{2}\right), w_{2}(\cdot, L)=h_{2}$ on the half-line $y=L$, $x<0$; $h_{2}$ is a given function belonging to $\mathscr{H}^{1}(R)$ and such that $h_{2}=h$ on $\Sigma_{2} \cap O_{2}$.
+
+$w_{3} \in W^{2,1}\left(\Omega_{3}\right)$, $w_{3}(A, \cdot)=\varphi$ on the segment $\Sigma_{3} \cap \mathcal{O}_{3}$,
+$w_{3}(\cdot, L)=h_{3}$ on the half line $y=L$, $x>A$;
+$h_3 \in H^1(R)$ is given such that $h_{3}=h$ on $\Sigma_{2} \cap \mathcal{O}_{3}$.
+
+$w_{4} \in W^{2,1}\left(\Omega_{4}\right)$, $w_{4}(B, \cdot)=\varphi$ on $\Sigma_{3} \cap \mathcal{O}_{4}$, $w_{4}(\cdot, 0)=h_{4}$ on the half-line $y=0$, $x<B$;
+$h_4$ belongs to $H^{1}(R)$ and equals $h$ on $\Sigma_{2} \cap \mathcal{O}_{4}$.
+
+The existence of functions as $w_{1}$ and $w_{2}$ is ensured by th.\ 4.1 in \cite{zbMATH03479447}; the existence of $w_{3}$ and $w_{4}$ follows from classical theorems on Sobolev spaces (see Th.\ 2.3, Chp.\ 4, vol.\ II in \cite{zbMATH03353865}). Then, let $w$ be the restriction to $\Omega$ of the function $\sum_{i} w_{i} \alpha_{i}$; clearly $w$ belongs to $Z(\Omega)$ and is sueh that $\left.w\right|_{\Sigma_{2}}=h$ and $\left.w\right|_{\Sigma_{3}}=\varphi$. Thus we can conclude that the map $\gamma$, extension of \eqref{2.8}, is linear, bounded and surjective.
+\end{proof}
+
+Let us consider now the following
+\begin{problem}{A} \label{PB:A}
+	To find a function $u \in Z(\Omega)$, solution to \cref{1.1}, and satisfying the boundary conditions: $\left.u\right|_{\Sigma_{2}}=h$, $\left.u\right|_{\Sigma_{3}}=\varphi$; $f$, $h$, $\varphi$ are given functions, $f \in L^{2}(\Omega), h \in \mathscr{H}^1\left(\Sigma_{2}\right)$, $\varphi \in H^{\frac{3}{4}}\left(\Sigma_{3}\right)$; $h$ and $\varphi$ satisfy conditions \eqref{2.9}.
+\end{problem}
+
+Thanks to \cref{TH:2.1}, Pb \ref{PB:A} can be reduced to a similar problem, with homogeneous boundary conditions: (Pb A0) say.
+
+\section{The fundamental inequality} \label{S3}
+
+We will derive now an a priori estimate of $\|u\|_{Z(\Omega)}$, where $u$ is a solution to Pb A0, in terms of the $L^{2}$-norms of $f$ and $u$; this implies (see, for instance, the results given by \textsc{Peetre} in \cite{zbMATH03169679}) that our boundary value problem has a finite index; in the next sections We will prove a more stringent result, namely existence and uniqueness for the solution of our problem.
+
+\begin{theorem} \label{TH:3.1}
+	Let us consider \cref{1.1} and assume that:
+	
+	i) $k(x) \in C^{0}([A, B])$, $k(x) \operatorname{sgn} x>0$ for $x \neq 0$,
+	
+	\quad $k(x)=x+o(x)$ for $x \to 0$
+	
+	ii) $a \in C^{0}(\Omega)$, $1 / \lambda \leqslant a \leqslant \lambda$ $(1<\lambda<\infty)$
+	
+	iii) $|b|,|c| \leqslant \mu<\infty$ ($\lambda$ and $\mu$ are given constants).
+	
+	\noindent
+	Then, every solution $u$ to Pb A0 satisfies the a priori inequality
+	\begin{equation} \label{3.1}
+		\|u\|_{Z(\Omega)} \leqslant C\left(\|f\|_{L^{2}(\Omega)}+\|u\|_{L^{2}(\Omega)}\right)
+	\end{equation}
+	where $C$ is a constant which does not depend on $u$.
+\end{theorem}
+
+\begin{proof}
+	Let us consider a more refined partition of unity than that considered above. Let $\left\{R_{k}\right\}$ be a finite covering of $\Omega;$ the $R_{k}$'s are rectangles centered at the point $\left(x_{k}, y_{k}\right) \in \Omega$:
+	\begin{equation*}
+		R_{k} \equiv\left\{(x, y);\left|x-x_{k}\right|<\varrho,\left|y-y_{k}\right|<\sigma\right\}
+	\end{equation*}
+	where $\varrho<\frac{1}{2} \min (-A, B)$, $\sigma<L / 2$.
+
+Then, let $\left\{\psi^{(k)}\right\}$ be a partition of unity on $\Omega$ such that:
+\begin{equation*}
+	\psi^{(k)} \in C^{\infty}\left(R^{2}\right), \quad \operatorname{spt} \psi^{(k)} \subset R_{k}, \quad \sum_{k} \psi^{(k)}=1 \text { on } \Omega
+\end{equation*}
+
+We will subdivide the set of $k$'s in three subsets:
+
+i) $k \in K_{0}$: each of the corresponding rectangles $R_{k}$ contains in its interior a segment of the $y$-axis.
+
+ii) $k \in K_{+}: \bar{R}_{k} \subset X_{+}$.
+
+iii) $k \in K_{-}: \bar{R}_{k} \subset X_{-}$.
+
+\noindent
+Let $k \in K_{0}$. Let us multiply both members of \cref{1.1} by $\psi^{(k)}$; let us put $u \psi^{(k)}=u^{(k)}$ and
+\begin{equation} \label{3.2}
+	\mathfrak{L}^{(k)} u \equiv x u_{y}-a\left(x_{k}, y_{k}\right) u_{xx}
+\end{equation}
+Then, we can write the equation $\psi^{(k)} \mathfrak{L}u =\psi^{(k)} f$ in the following way
+\begin{equation} \label{3.3}
+	\mathfrak{L}^{(k)} u^{(k)}=F^{(k)}
+\end{equation} 
+where we defined $F^{(k)}$ as
+\begin{equation} \label{3.4}
+	F^{(k)} = (\mathfrak{L}^{(k)} - \mathfrak{L}) u^{(k)}
+	+ (\mathfrak{L} \psi^{(k)} u - \psi^{(k)} \mathfrak{L} u)
+	\psi^{(k)} f
+\end{equation}
+
+\newpage
+
+
+We consider the following three subcases: I) $R_{k}$ contains the origin; II) $R_{k}$ contains the point $(0, L)$; III) $R_{k}$ does not contain the origin nor the point $(0, L)$.
+
+Then, if $u$ is a solution to Pb A0 we have respectively:
+
+\medskip
+
+I) $u^{(k)}$ (which vanishes on $\Omega \setminus R_{k}$) can be continued as zero over $\Omega_{1} \setminus R_{k}$; then it satisfies on $\Omega_{1}$ \cref{3.3} and the boundary condition: $u^{(k)}(x, 0)=0$ a.e.\ for $x>0$. Thus, thanks to Th.\ 4.1 in \cite{zbMATH03479447} the following inequality holds\footnote{This inequality is a modified version of formula (4.5) in \cite{zbMATH03479447}, where the constant $k$ and the function $h$ are taken zero. Notice that, if we put roughly $k=0$ in $(4.5)$ of \cite{zbMATH03479447}, the constant appearing there becomes infinite; in order to obtain a meaningful inequality when $k = 0$, we must take in the left member only the norms of the highest derivatives of $u$ (as here in \eqref{3.5}); this is a consequence of inequality (3.51) in \cite{zbMATH03479447}.}
+\begin{equation} \label{3.5}
+	\iint_{R_{k}} \left(x^{2}\left|u_{y}^{(k)}\right|^{2}+\left|u_{xx}^{(k)}\right|^{2}\right) d x d y \leqslant \operatorname{const} \iint_{R_k} \left|F^{(k)}\right|^{2} d x d y
+\end{equation}
+where the constant depends only on $\lambda .$
+
+\medskip
+
+II) $u^{(k)}$ (now continued as zero over $\Omega_{2} \setminus R_{k}$) satisfies \eqref{3.3} and the boundary condition: $u^{(k)}(x, L)=0$ a.e.\ for $x<0$. Thus, thanks to an obvious modification of the same theorem quoted above, we can derive an inequality like \eqref{3.5}.
+
+\medskip
+
+III) In this case $u^{(k)}$ can be continued as zero over the whole plane$\setminus R_{k}$; then we can apply Th.\ 4.2 of \cite{zbMATH03479447} and we get still an inequality like \eqref{3.5}.
+
+\medskip
+
+Let us consider now the expression for $F^{(k)}$.
+\begin{equation} \label{3.6}
+	\begin{aligned}
+		F^{(k)}=\psi^{(k)} f+\psi^{(k)}(x&-k(x)) u_{y}\\
+		&+\psi^{(k)}\left(a(x, y)-a\left(x_{k}, y_{k}\right)\right) u_{xx} \\
+		&-(2 a\left(x_{k}, y_{k}\right) \psi_{x}^{(k)}+b(x, y) \psi^{(k)}) u_{x} \\
+		&+(x \psi_{y}^{(k)}-a\left(x_{k}, y_{k}\right) \psi_{x x}^{(k)}-c(x, y) \psi^{(k)}) u
+	\end{aligned}
+\end{equation}
+Let $\varepsilon>0$ be fixed; let us choose the rectangle $R_{k}$ so small that
+\begin{equation*}
+	\begin{aligned}
+		&|x-k(x)|<\varepsilon x \\
+		&|a(x, y)-a\left(x_{k}, y_{k}\right)|<\varepsilon
+	\end{aligned}
+\end{equation*}
+where $(x, y)$ is a point in $R_{k}$. 
+
+\newpage
+
+Then we get
+\begin{equation} \label{3.7}
+	\begin{split}
+		\left\|F^{(k)}\right\|_{L^{2}\left(R_{k}\right)} \leqslant\|f\|_{L^{2}\left(R_{k}\right)}+\varepsilon\left\|x u_{y}\right\|_{L^{2}\left(R_{k}\right)}+\varepsilon\left\|u_{x x}\right\|_{L^{2}\left(R_{k}\right)}\\
+		+M\left(\left\|u_{x}\right\|_{L^{2}\left(R_{k}\right)}+\|u\|_{L^{2}\left(R_{k}\right)}\right)
+	\end{split}
+\end{equation}
+where the constant $M$ depends on the max of $a,|b|,|c|$ and of the derivatives of $\psi^{(k)}$.
+
+Let now consider $k \in K_{+}$: Define
+\begin{equation} \label{3.8}
+	\mathfrak{L}^{(k)} u \equiv k\left(x_{k}\right) u_{y}-a\left(x_{k}, y_{k}\right) u_{xx}
+\end{equation}
+By the same procedure previously used, we still arrive at \cref{3.3}, with the same definition \eqref{3.4} of $F^{(k)}$. If $R_{k}$ does not contain any point of the boundary $\Sigma_{2} \cup \Sigma_{3}$, $u^{(k)}$ (continued as zero outside $R_{k}$) is a solution of an (ordinary) parabolic equation; then the following inequality holds
+\begin{equation} \label{3.9}
+	\iint_{R_{k}}\left(\left|u_{y}^{(k)}\right|^{2}+\left|u_{xx}^{(k)}\right|^{2}\right) d x d y \leqslant \text { const } \iint_{R_{k}}\left|F^{(k)}\right|^{2} d x d y
+\end{equation}
+where the constant depends on $\lambda$ and on the minimum of $k(x)$ on $R_{k}$. We get a similar inequality also in case $R_{k}$ contains (in its interior or on its boundary) a piece of $\Sigma_{2} \cup \Sigma_{3}$; for $u^{(k)}$ (continued on the half-strip $\Omega_{4}$ ) is a solution of an (ordinary) parabolic equation vanishing on the boundaries $y=0$ and $x=B$.
+
+If we write down explicitly the term $F^{(k)}$ we have now a formula like~\eqref{3.6} with $k\left(x_{k}\right)-k(x)$ instead of $x-k(x)$; then it is clear that we obtain, as before, an estimate like \eqref{3.7}, with the term $\left\|u_{y}\right\|$ instead of $\|x u_y\|$, but, since $x$ now runs in a bounded interval, we can still write in this estimate the norm $\left\|x u_{y}\right\|$ instead of $\left\|u_{y}\right\|$. Similar considerations in case $k \in K_-$ allow us to obtain an inequality like \eqref{3.9} with the same estimate~\eqref{3.7} for $F^{(k)}$.
+
+Let us sum up over $k$ the estimates previously obtained; first we have
+\begin{equation*}
+	\sum_{k} \|u^{(k)}\|_{Z(R_k)}^2
+	\leqslant \operatorname{const}
+	\left\{
+	\sum_{k \in K_0} \|u^{(k)}\|_{Z(R_k)}^2 + 
+	\sum_{k \in K_\pm} \|u^{(k)}\|_{W^{2,1}(R_k)}
+	\right\}
+\end{equation*}
+and, taking account of \eqref{3.5} and \eqref{3.9} we get
+\begin{equation} \label{3.10}
+	\begin{split}
+		\sum_{k} \|u^{(k)}\|_{Z(R_k)}^2 \leqslant
+		\operatorname{const} \sum_{k} \Bigg\{
+		\|f\|_{L^{2}\left(R_{k}\right)}^2
+		+\varepsilon^2\left\|x u_{y}\right\|_{L^{2}\left(R_{k}\right)}^2 \\
+		+\varepsilon^2\left\|u_{x x}\right\|_{L^{2}\left(R_{k}\right)}^2
+		+M^2\left(\left\|u_{x}\right\|_{L^{2}\left(R_{k}\right)}^2+\|u\|_{L^{2}\left(R_{k}\right)}^2\right) \Bigg\}
+	\end{split}
+\end{equation}
+
+\newpage
+
+Notice that the constant which multiplies the right member of \eqref{3.10} does not depend on the chosen partition of unity, while $M$ does. On the other hand, we have
+\begin{equation} \label{3.11}
+	\sum_{k}\|\cdot\|_{L^{2}\left(R_{k}\right)}^2 \leqslant N \|\cdot \|_{L^{2}(\Omega)}^{2}
+\end{equation}
+and
+\begin{equation} \label{3.12}
+	N \sum_{k}\left\|u^{(k)}\right\|_{Z\left(R_{k}\right)}^{2} \geqslant\|u\|_{Z(\Omega)}^{2}
+\end{equation}
+where $N$ is the number of rectangles which cover $\Omega$.
+
+Thus we conclude, by taking account of \eqref{3.11} and \eqref{3.12} and by taking $\varepsilon$ sufficiently small, that the following inequality holds
+\begin{equation} \label{3.13}
+	\|u\|_{Z(\Omega)} \leqslant \operatorname{const}\left(\|f\|_{L^{2}(\Omega)}+\|u\|_{W^{1,0} (\Omega)}\right)
+\end{equation}
+Here the constant depends on $\lambda$, $\mu$, the modulus of continuity of $k(x)$, and on the geometry of $\Omega$. From \eqref{3.13}, inequality \eqref{3.1} follows by interpolation. \cref{TH:3.1} is proved.
+\end{proof}
+
+\section{Weak solutions} \label{S4}
+
+Let us define weak solutions for problem A0; we shall make some assumptions about the regularity of the coefficients of \eqref{1.1}, in order to put the operator $\mathfrak{L}$ in divergence form. 
+Then we will prove existence and uniqueness for a weak solution by using standard tools of functional analysis. 
+In order to avoid technical difficulties, which are not related to the degeneracy of the parabolicity but are the same as encountered in studying ordinary parabolic equations, we will make more assumptions than necessary on the coefficients.
+
+Then let us assume that
+\begin{equation} \label{4.1}
+	\begin{cases}
+		\text{i) the coefficients $k, a, b, c$ have the same properties as} \\ \qquad \text{in \cref{TH:3.1}},\\
+		\text{ii) } a \in C^{2}(\Omega), b \in C^{1}(\Omega), c \in C^{0}(\Omega), \\
+		\text{iii) } c-\frac{1}{2} b_{x}-\frac{1}{2} a_{xx} \geqslant 0 \text{ on } \Omega
+	\end{cases}
+\end{equation}
+Notice that if $c-\frac{1}{2} b_x -\frac{1}{2} a_{xx}$ is bounded below by a multiple of $k$, condition iii) can be satisfied by means of an exponential substitution.
+
+\newpage
+
+Let us write \cref{1.1} in divergence form \eqref{4.2}
+\begin{equation} \label{4.2}
+	\tilde{\mathfrak{L}} u=k(x) u_{y}-\left(\alpha u_{x}+\beta u\right)_{x}-\gamma u_{x}-\delta {u}=f
+\end{equation}
+where we put
+\begin{equation} \label{4.3}
+	\alpha=a, \quad \alpha_{x}+\beta-\gamma=-b, \quad \beta_{x}+\delta=-c
+\end{equation}
+We will call $u$ a weak solution to Pb A0 if
+\begin{equation} \label{4.4}
+	u \in L^{2}(] 0, L[; H_{0}^{1}(A, B))
+\end{equation}
+[i.e., $y \rightarrow u(\cdot, y)$ is an $L^{2}$ function with values in $H_{0}^{1}(A, B)$; remark that this space can be obtained by completion of the space $\{\varphi; \varphi \in C_{0}^{\infty}(\bar{\Omega}), \varphi=0 \text{ on } \left.\Sigma_{2} \cup \Sigma_{3}\right\}$ in $W^{1,0}(\Omega)$] and for every $\varphi$ such that
+\begin{equation} \label{4.5}
+	\varphi \in C_{0}^{1}(\bar{\Omega}), \quad \varphi=0 \text { on } \Sigma_{1} \cup \Sigma_{3}
+\end{equation}
+the following equality holds
+\begin{equation} \label{4.6}
+	\begin{split}
+		-\int_{\Omega} k(x) u \bar{\varphi}_{y} d x d y+\int_{\Omega}\left(\alpha u_{x}+\beta u\right) \bar{\varphi}_{x} d x d y- \\
+		-\int_{\Omega}\left(\gamma u_{x}+\delta u\right) \bar{\varphi} d x d y=\langle f, \bar{\varphi}\rangle.
+	\end{split}
+\end{equation}
+Here $f$ is a given distribution belonging to $L^{2}(] 0, L [; H^{-1}(A, B))$; $\langle f, \bar{\varphi}\rangle$ means the pairing between $f$ and $\varphi$.
+
+\begin{theorem} \label{TH:4.1}
+	Let \eqref{4.1} hold; for every $f \in L^{2}(] 0, L[; H^{-1}(A, B))$ there exists only one solution $u$ to pb.\ \eqref{4.4} \ldots \eqref{4.6}. This solution verifies the a priori inequality
+	\begin{equation} \label{4.7}
+		\|u\|_{W^{1,0}(\Omega)} \leqslant \operatorname{const} \|f\|_{L^{2}\left(H^{-1}\right)}
+	\end{equation}
+	where the constant depends on the ellipticity constant $\lambda$ and on the geometry of $\Omega$. $\|\cdot\|_{L^2(H^{-1})}$ is the norm in the space $L^{2}(] 0, L [; H^{-1}(A, B))$.
+\end{theorem}
+
+\begin{proof}[Proof of existence]
+	
+	It is an application of a theorem from \textsc{Lions} \cite{zbMATH03160590} (Chp.~3, Th.~1.1).
+	Take the Hilbert space
+	\begin{equation*}
+		F=L_{2}(] 0, L[; H_{0}^{1}(A, B))
+	\end{equation*}
+	with the scalar product and norm
+	\begin{equation*}
+		(u, v)=\int_{\Omega} u_{x} \bar{v}_{x} d x d y, \quad\|u\|=(u, u)^{\frac 1 2}
+	\end{equation*}
+
+	\newpage
+
+	Consider the subspace $\Phi$ of $F$
+	\begin{equation*}
+		\Phi \equiv\left\{\varphi; \varphi \in C_{0}^{1}(\bar{\Omega}); \varphi=0 \text { on } \Sigma_{1} \cup \Sigma_{3}\right\}
+	\end{equation*}
+	equipped with the norm of $F$.
+	
+	Let us define a sesquilinear form
+	\begin{equation*}
+		\begin{gathered}
+			u, \varphi \mapsto E(u, \varphi) \\
+			F \times \Phi \to C
+		\end{gathered}
+	\end{equation*}
+	\begin{equation} \label{4.8}
+		\begin{split}
+			E(u, \varphi)=-\int_{D} k(x) u \bar{\varphi}_{y} d x d y+\int_{\Omega}\left(\alpha u_{x}+\beta u\right) \bar{\varphi}_{x} d x d y \\
+			-\int_{\Omega}\left(\gamma u_{x}+\delta u\right) \bar{\varphi} d x d y
+		\end{split}
+	\end{equation}
+	and a semilinear form
+	\begin{equation*}
+		\varphi \mapsto M(\varphi), \quad \Phi \to C, \quad M(\varphi)=\langle f, \bar{\varphi}\rangle.
+	\end{equation*}
+	The maps $u \mapsto E(u, \varphi)$ ($\varphi$ fixed) and $\varphi \mapsto M(\varphi)$ are continuous; moreover we have, by integration by parts,
+	\begin{equation*}
+		\begin{split}
+			|E(\varphi, \varphi)| \geqslant \operatorname{Re} E(\varphi, \varphi)=-\frac{1}{2} \int_{\Omega} k(x) \frac{\partial}{\partial y}|\varphi|^{2} d x d y+\int_{\Omega} \alpha\left|\varphi_{x}\right|^{2} d x d y+ \\
+			+\frac{1}{2} \int_{\Omega}(\gamma-\beta)_{x}|\varphi|^{2} d x d y-\int_{S} \delta|\varphi|^{2} d x d y .
+		\end{split}
+	\end{equation*}
+	Now we have
+	\begin{equation*}
+		-\frac{1}{2} \int_{\Omega} k(x) \frac{\partial}{\partial y}|\varphi|^{2} d x d y
+		=-\frac{1}{2} \int_{A}^{0} k(x)|\varphi(x, L)|^{2} d x+\frac{1}{2} \int_{0}^{B} k(x)|\varphi(x, 0)|^{2} d x \geqslant 0
+	\end{equation*}
+	and, because of iii) of \eqref{4.1}
+	\begin{equation*}
+		\frac{1}{2}\left(\gamma_{x}-\beta_{x}\right)-\delta>0
+	\end{equation*}
+	Thus we have
+	\begin{equation*}
+		|E(\varphi, \varphi)|>\int_{\Omega} \alpha\left|\varphi_{x}\right|^{2} d x d y\geqslant\lambda^{-1}\|\varphi\|^{2}
+	\end{equation*}
+	where $\lambda$ is the ellipticity constant (see ii) in \cref{TH:3.1}). 
+	Then we can apply the above cited theorem of Lions to conclude that there exists $u \in F$ verifying the equation $E(u, \varphi)=M(\varphi)$ for every $\varphi \in \Phi$.
+\end{proof}
+
+
+\newpage
+
+\begin{proof}[Proof of uniqueness]
+	Let $\mathcal{C}$ be the set of $C_{0}^{\infty}(\bar{\Omega})$ functions which vanish on $\Sigma_{2} \cup \Sigma_{3}$: this set is dense in the class of weak solutions, Thus, take a sequence $\left\{u^{(m)}\right\}$ of functions belonging to $\mathcal{C}$ which converges, in the usual $W^{1,0}$ norm, to a weak solution $u$ of Pb A0. Let us put
+	\begin{equation} \label{4.9}
+		k(x) u_{y}^{(m)}-\left(\alpha u_{x}^{(m)}+\beta u^{(m)}\right)_{x}-\left(\gamma u_{x}^{(m)}+\delta u^{(m)}\right)=f^{(m)}.
+	\end{equation}
+	Then, multiply both members of \eqref{4.9} by $\bar{u}^{(m)}$ and integrate on $\Omega$. By integrating by parts and equating the real parts of the two members of the resulting equation, we get
+	\begin{equation*}
+		\begin{split}
+			\int_{\Omega} & \left\{\alpha\left|u_{x}^{(m)}\right|^{2}+\left[\frac{1}{2}(\gamma-\beta)_{x}-\delta\right]\left|u^{(m)}\right|^2\right\} d x d y  \\
+			&=-\frac{1}{2} \int_{\Omega} k(x) \frac{\partial}{\partial y}\left|u^{(m)}\right|^{2} d x d y+\operatorname{Re}\left\langle f^{(m)}, \bar{u}^{(m)}\right\rangle \\
+			& \leqslant\left\|f^{(m)}\right\|_{L^{2}\left(H^{-1}\right)} \cdot\left\|u^{(m)}\right\|_{W^{1,0}(\Omega)}
+		\end{split}
+	\end{equation*}
+	Letting $m$ tend to infinity, we obtain an inequality for the weak solution $u$; by taking account of iii) of \eqref{4.1} and ii) in \cref{TH:3.1} we obtain
+	\begin{equation} \label{4.10}
+		\lambda^{-1} \int_{\Omega}\left|u_{x}\right|^{2} d x d y \leqslant \|f\|_{L^{2}\left(H^{-1}\right)} \cdot \| u \|_{W^{1,0}(\Omega)}
+	\end{equation}
+	From \eqref{4.10} inequality \eqref{4.7} easily follows.
+\end{proof}
+
+
+\section{Regularization} \label{S5}
+
+\begin{theorem} \label{TH:5.1}
+	Let $f \in L^{2}(\Omega)$ be given; let \eqref{4.1} hold for the coefficients of \cref{1.1}; moreover, let $k$ belong to $C^{1}(A, B)$\footnote{\label{foot:3}It would be sufficient that $k \in C^{0,\alpha}(A,B)$ with $\alpha > 0$; in this case the proof would be a little more complicated.}; then there exists a unique solution to Pb A0; it satisfies the inequality
+	\begin{equation} \label{5.1}
+		\|u\|_{Z(\Omega)} \leqslant \operatorname{const} \|f\|_{L^{2}(\Omega)},
+	\end{equation}
+	the constant depending only on the geometry of $\Omega$ (i.e.\ on $A, B, L$).
+\end{theorem}
+
+\newpage
+
+\begin{proof}
+	The proof is in two steps; first we prove the regularity at interior points of $\Omega$ and then we shall prove regularity up to the boundary.
+	
+	\medskip 
+	\emph{i) Interior regularity:}
+	let $\varepsilon>0$ be fixed (conveniently small) and let $\Omega'$ be the rectangle, contained in $\Omega$, defined as follows:
+\begin{equation*}
+	\Omega' \equiv\left\{(x, y); A+\varepsilon^{\frac 1 2}<x<B-\varepsilon^{\frac 1 2}, \varepsilon^{\frac 1 2}<y<L-\varepsilon^{\frac{1}{2}}\right\}
+\end{equation*}
+Let us mollify in $\Omega'$ the weak solution considered in \cref{TH:4.1}, by putting, for $(x, y) \in \Omega'$,
+\begin{equation}
+	u_{\varepsilon}=J_{\varepsilon} u=j_{\varepsilon} \ast u=\int_{\Omega} j_{\varepsilon}(x-\xi, y-\eta) u(\xi, \eta) d \xi d \eta
+\end{equation}
+The mollifier $j_{\varepsilon}$ is such that $j_{\varepsilon}(x, y)=\varepsilon^{-1} j(x / \sqrt{\varepsilon}, y / \sqrt{\varepsilon}), j \in C_{0}^{\infty}\left(R^{2}\right)$, $j\geqslant0$, $\int_{R^2} j(x, y) d x d y=1$; the support of $j$ is contained in the disk $x^{2}+y^{2}<1$, so that the support of $j_{\varepsilon}$ is contained in the disk $\left(x^{2}+y^{2}\right)^{\frac{1}{2}}<\sqrt{\varepsilon}$. Clearly $u_{\varepsilon} \in C^{\infty}\left(\Omega'\right)$; then we can apply to it the operator $\tilde{\mathfrak{L}}$. Let us introduce now a function $\zeta \in C^{\infty}\left(R^{2}\right)$, such that $\zeta=1$ on $\Omega''$ (a compact set contained in $\Omega'$) and $\zeta=0$ on $\Sigma_{2}' \cup \Sigma_{3}'$ $\Sigma'$ is the boundary of $\Omega'$). Thus, we can apply the estimate \eqref{3.13} to $\zeta u_{\varepsilon}$; we get
+\begin{equation} \label{5.3}
+	\| \zeta u_\varepsilon \|_{Z(\Omega')} \leqslant
+	\operatorname{const} \left(
+	\| \tilde{\mathfrak{L}}(\zeta u_\varepsilon) \|_{L^2(\Omega')} + 
+	\| \zeta u_\varepsilon \|_{W^{1,0}(\Omega')}
+	\right)
+\end{equation}
+Let us write the identity
+\begin{equation*}
+	\tilde{\mathfrak{L}}\left(\zeta u_{\varepsilon}\right)
+	=\zeta J_{\varepsilon} f + 
+	\left(\tilde{\mathfrak{L}} \zeta u_{\varepsilon}-\zeta J_{\varepsilon} f\right)
+\end{equation*}
+Notice also that $\tilde{\mathfrak{L}} \left(\zeta u_{\varepsilon}\right)=\zeta \tilde{\mathfrak{L}} u_{\varepsilon}$ + terms containing $u_{\varepsilon}$, $\left(u_{\varepsilon}\right)_{x}$ and derivatives of $\zeta$.
+
+Then \eqref{5.3} can be written
+\begin{equation} \label{5.4}
+	\| \zeta u_\varepsilon \|_{Z(\Omega')} \leqslant
+	\operatorname{const} \left(
+	\| J_\varepsilon f \|_{L^2(\Omega')} + 
+	\| \tilde{\mathfrak{L}} u_\varepsilon - J_\varepsilon f \|_{L^2(\Omega')} + 
+	M \| u_\varepsilon \|_{W^{1,0}(\Omega')}
+	\right)
+\end{equation}
+Here the constant $M$ depends on the maximum of the derivatives of~$\zeta$, i.e., it is inversely proportional to the square of the distance of $\partial \Omega'$ from~$\partial \Omega''$.
+
+Now, since $u$ is a weak solution, in $\Omega$, to Pb A0, we get
+\begin{equation}
+	\left(J_{\varepsilon} f\right)(x, y)=E\left(u, j_{\varepsilon}(\cdot-x,\cdot-y)\right)
+\end{equation}
+Where $E$ is the sesquilinear form defined by \eqref{4.8}.
+
+\newpage
+
+Let ns consider the terms contained in the difference $(\tilde{\mathfrak{L}} u_{\varepsilon})(x, y)-E(u, j_{\varepsilon}(\cdot-x,\cdot-y))$; first we have
+\begin{equation*}
+	\begin{split}
+		\Phi_{1}(x, y) & \equiv k(x) \frac{\partial}{\partial y} \int_{\Omega} j_{\varepsilon}(x-\xi, y-\eta) u(\xi, \eta) d \xi d \eta \\
+		& \quad +\int_{\Omega} k(\xi) u(\xi, \eta) \frac{\partial}{\partial \eta} j_{\varepsilon}(x-\xi, y-\eta) d \xi d \eta \\
+		& =\int_{\Omega}(k(x)-k(\xi)) u(\xi, \eta) \frac{\partial}{\partial y} j_{\varepsilon}(x-\xi, y-\eta) d \xi d \eta
+	\end{split}
+\end{equation*}
+By the Lipschitz property of $k$ and well-known properties of the mollifiers, we can estimate the norm of $\Phi_{1}$ as follows:
+\begin{equation*}
+	\left\|\Phi_{1}\right\|_{L^{2}\left(\Omega'\right)} \leqslant (\text { constant not dependent on } \varepsilon) \|u\|_{L^{2}(\Omega)}
+\end{equation*}
+Let us now consider the following terms
+\begin{equation*}
+	\begin{split}
+		\Phi_{2}(x, y) & \equiv-\frac{\partial}{\partial x} \alpha(x, y) \frac{\partial}{\partial x} \int_{\Omega} u(\xi, \eta) j_{\varepsilon}(x-\xi, y-\eta) d \xi d \eta \\
+		& \quad -\int_{\Omega} \alpha(\xi, \eta) u_{\xi}(\xi, \eta) \frac{\partial}{\partial \xi} j_{\varepsilon}(x-\xi, y-\eta) d \xi d \eta=\\
+		&=\int_{\Omega}(\alpha(\xi, \eta)-\alpha(x, y)) u_{\xi}(\xi, \eta) \frac{\partial}{\partial x} j_{\varepsilon}(x-\xi, y-\eta) d \xi d \eta \\
+		&\quad-\frac{\partial \alpha}{\partial x}(x, y) \int_{\Omega} j_{\varepsilon}(x-\xi, y-\eta) u_{\xi}(\xi, \eta) d \xi d \eta
+	\end{split}
+\end{equation*}
+
+Since the coefficient $\alpha$ belongs to $C^{2}(\Omega)$, we can estimate the norm of $\Phi_{2}$ in terms of the norm of $u_{x}$ times a constant not depending on $\varepsilon$.
+
+The other terms appearing in the expression of $(\tilde{\mathfrak{L}} u_{\varepsilon})(x, y)-E(u, j_{\varepsilon}(\cdot-x,\cdot-y))$ can be dealt with in an analogous manner, and we finally obtain, from \eqref{5.4},
+\begin{equation} \label{5.6}
+	\left\|\zeta u_{\varepsilon}\right\|_{Z\left(\Omega'\right)} \leqslant M\left(\|f\|_{L2(\Omega)}+\|u\|_{W^{1,0}(\Omega)}\right)
+\end{equation}
+Here the constant $M$ does not depend on $\varepsilon$, but it depends on the derivatives of $\zeta$. From \eqref{5.6} the interior regularity of $u$ follows,
+by standard arguments of functional analysis; for, by taking account of the weak compactness of the balls in $Z(\Omega)$ (which is an Hilbert Space) and of the compact embedding of $Z(\Omega)$ into $W^{1,0}(\Omega)$ (Rellich theorem), we get
+\begin{equation} \label{5.7}
+	\|\zeta u\|_{Z\left(\Omega'\right)} \leqslant M\left(\|f\|_{L^{2}(\Omega)}+\|u\|_{W^{1,0}(\Omega)}\right)
+\end{equation}
+Now $M$ depends on $\textrm{dist} \left(\partial \Omega, \partial \Omega'\right)$ and $\textrm{dist} \left(\partial \Omega', \partial \Omega''\right)$.
+
+\newpage
+
+\emph{ii) Regularity up to the boundary.}
+Let us restrict ourselves to a neighborhood of the origin; clearly, the region near the point $(0, L)$ can be dealt with analogously; moreover, far from the $y$-axis, $u$ is a (weak) solution of an (ordinary) parabolic equation, thus its regularity is ensured by well-known results.
+
+Let us assume the fact, which is proved in the Appendix, that if $\Omega \equiv \Omega_{1}$ (the half-plane $y>0$), then the weak solution is regular. Take $\psi \in C^{\infty}\left(R^{2}\right)$, $\mathrm{supp~} \psi \subseteq \Omega_{\varepsilon} \equiv\{(x, y):\left(x^{2}+y^{2}\right)^{\frac{1}{2}}<\varepsilon\}$ (with $\varepsilon>0$ conveniently small), $\psi=1$ on $\Omega_{\varepsilon / 2}$. Define $u_{0}=u \psi$ in $\Omega$ (where $u$ is our weak solution) and $u_{0}=0$ in $\Omega_{1} \backslash \Omega$. Let $\tilde{E}$ be a continuation over $\Omega_{1} \backslash \Omega$ of the sesquilinear form defined by \eqref{4.8} obtained by continuing the coefficients $k, a, b, c$ in such a way that hypotheses \eqref{4.1} be satisfied with $\Omega_{1}$ in place of $\Omega$ and $k \in L^{\infty}(R) \cap C^{1}(R)$. Then $u_{0} \in L^{2}(] 0, \infty[; H_{0}^{1}(R))$ satisfies the equation
+\begin{equation*}
+	\tilde{E}\left(u_{0}, \varphi\right)=\langle\tilde{f}, \bar{\varphi}\rangle
+\end{equation*}
+$\forall \varphi \in C_{0}^{1}\left(\bar{\Omega}_{1}\right)$, $\varphi=0$ on the half-line $y=0, x<0$, and $\tilde{f}=f \psi$ + terms linear in $u$ and $u_{x}$. Then it follows (see the Appendix) that $u_{0}$ has a square summable second derivative with respect to $x$, and, since $u_{0}$ coincides with $u$ in $\Omega_{\varepsilon / 2}$, the regularity of $u$ is proved.
+
+We can do the same in a neighborhood of the point $(0, L)$. Also taking account of the well-known results about the regularity of solutions of (ordinary) parabolic equations, we can write an inequality like \eqref{5.7} in the form
+\begin{equation*}
+	\|u\|_{Z(\Omega)} \leqslant \operatorname{const} \left(\|f\|_{L^2(\Omega)}+\|u\|_{W^{1,0}(\Omega)}\right)
+\end{equation*}
+From this inequality, \eqref{5.1} follows, by using \eqref{4.7}.
+\end{proof}
+
+Now, by combining \cref{TH:2.1,TH:5.1} we achieve the proof of the following
+
+\begin{theorem} \label{TH:5.2}
+	Let $f \in L^{2}(\Omega)$, $\varphi \in H^{\frac 3 4}\left(\Sigma_{3}\right)$, $h \in \mathscr{H}^{1}\left(\Sigma_{2}\right)$ be given functions, let $h$ and $\varphi$ satisfy conditions \eqref{2.9}. 
+	Let \eqref{4.1} hold for the coefficients of \cref{1.1} and $k \in C^{1}(A, B)$\footnote{See footnote \ref{foot:3} to page \pageref{foot:3}}. Then there exists a unique solution $u$ to Pb \ref{PB:A}; it satisfies the inequality
+	\begin{equation} \label{5.13} \tag{5.13}
+		\|u\|_{Z(\Omega)} 
+		\leqslant 
+		\operatorname{const}
+		\left(
+		\|f\|_{L^2(\Omega)} + 
+		\|h\|_{\mathscr{H}^1(\Sigma_2)} +
+		\|\varphi\|_{H^{\frac 3 4}(\Sigma_3)}
+		\right)
+	\end{equation}
+\end{theorem}
+
+
+\newpage
+
+\begin{proof}
+	Let $w$ be any function belonging to $Z(\Omega)$ such that $\left.w\right|_{\Sigma_{3}}=\varphi$ and $\left.w\right|_{\Sigma_{2}}=h$ and let $v$ be the solution (belonging to $\left.Z(\Omega)\right)$ of the equation $\tilde{\mathfrak{L}} v=f-\tilde{\mathfrak{L}} w$, such that $v|_{\Sigma_2 \cup \Sigma_{3}}=0$; thus $u=v+w$ is the required solution of Pb \ref{PB:A}. Inequality \eqref{5.13} follows from \eqref{5.1} and the boundedness of the operator \eqref{2.8}. Uniqueness can be derived from the inequality
+	\begin{equation} \tag{5.14} \label{5.14}
+		\int_{\Omega} a\left|u_{x}\right|^{2} d x d y+\int_{\Omega}\left(c-\frac{1}{2} b_{x}-\frac{1}{2} a_{xx}\right)|u|^{2} d x d y \leqslant 0
+	\end{equation}
+	which has to be satisfied by the difference $u=u_{1}-u_{2}$ of any pair of solutions of Pb \ref{PB:A}. \eqref{5.14} follows directly from the equation satisfied by $u$: $\mathfrak{L} u=0$, by integrating by parts the identity $\bar{u} \mathfrak{L} u -u \mathfrak{L} \bar{u}=0$.
+\end{proof}
+
+
+\appendix
+
+\section{Appendix}
+
+\renewcommand\thesubsection{\Roman{subsection}}
+
+\subsection{\texorpdfstring{$\Omega$}{Omega} is a strip}
+
+This case is of some interest in applications, for instance, to brownian motion, (see the introduction of \cite{zbMATH03479447}), since $x$ has the meaning of a velocity and runs through $-\infty$ to $+\infty$, while $y$ is a space variable. Then, let $\Omega$ be the strip $0<y<L$ and $-\infty<x<+\infty$. We can consider in $\Omega$ the first boundary value problem for \eqref{1.1}. We still will obtain an existence and uniqueness theorem for solutions to such a problem, by slightly modifying the procedure used in the main text.
+
+Thus, let us assume that the hypotheses of \cref{TH:5.1} on the coefficients hold; moreover $k \in L^{\infty}(R)$. Let us define the function $e(x)$ as follows:
+\begin{equation} \label{A1}
+	e(x)=x \text { for }|x|\leqslant 1; \quad e(x)=1 \text { for }|x|>1
+\end{equation}
+Let us take $\tilde{Z}(\Omega)$ as the set of functions $u$, defined on $\Omega$, such that the norm
+\begin{equation} \label{A2}
+	\| u \|_{\tilde{Z}(\Omega)} =\left\{\iint_{\Omega}\left(e(x)^{2}\left|u_{y}\right|^{2}+\left|u_{xx}\right|^{2}+\left|u_{x}\right|^{2}+|u|^{2}\right) d x d y\right\}^{\frac 12}
+\end{equation}
+is finite.
+
+\newpage
+
+$\tilde{\mathscr{H}}^{1}(I)$, where $I$ is an open subset of $R$, is the set of functions $\varphi$, defined on $I$, such that the norm
+\begin{equation} \label{A3}
+	\|\varphi\|_{\tilde{\mathscr{H}}^1(I)} =\left\{ \int_{I} |e(x)| 
+	\left(|\varphi|^2+|\varphi'|^2\right)
+	\right\}^{\frac{1}{2}}
+\end{equation}
+is finite.
+
+The boundary of $\Omega$ now consists of the sets
+
+$\Sigma_{0}=\{ \text{the points } (0,0) \text{ and } (0, L)\}$, 
+
+$\Sigma_{1}=\{ \text{the half-lines } y=0, x<0 \text{ and } y=L, x>0\}$ and 
+
+$\Sigma_{2}=\{ \text{the half-lines } y=0, x>0 \text{ and } y=L, x<0\}$.
+
+\noindent
+\cref{TH:2.1} now becomes:
+\begin{theorem} \label{TH:A.1}
+	The operator
+	\begin{equation}
+		C_{0}^{\infty}(\bar{\Omega}) \ni u \mapsto u|_{\Sigma_2}
+	\end{equation}
+	is a densely defined bounded operator from $\tilde{Z}(\Omega)$ into $\tilde{\mathscr{H}}^{1}\left(\Sigma_{2}\right)$. Let
+	\begin{equation}
+		\tilde{\gamma}: \tilde{Z}(\Omega) \mapsto \tilde{\mathscr{H}}^{1}\left(\Sigma_{2}\right)
+	\end{equation}
+	be its (uniquely defined) linear bounded extension. Then the range of $\tilde{\gamma}$ is exactly $\tilde{\mathscr{H}}^{1}\left(\Sigma_{2}\right)$ and $\tilde{\gamma}$ is an isomorphism between $\tilde{Z}(\Omega) / \Ker \tilde{\gamma}$ and $\tilde{\mathscr{H}}^{1}\left(\Sigma_{2}\right)$.
+\end{theorem}
+
+The proof is quite similar to that of \cref{TH:2.1} and will be omitted.
+
+\begin{theorem}
+	Let $f \in L^{2}(\Omega)$ and $h \in \tilde{\mathscr{H}}^{1}\left(\Sigma_{3}\right)$ be given. Let hypotheses of \cref{TH:5.1} hold and $k \in L^{\infty}(R)$. There exists only one funcfion $u \in \tilde{Z}(\Omega)$, such that $\left.u\right|_{\Sigma_{2}}=h$ (in the sense of traces) and satisfying \eqref{1.1}. This solution is estimated by
+	\begin{equation}		
+		\|u\|_{\tilde{Z}(\Omega)} 
+		\leqslant 
+		\operatorname{const}
+		\left(
+		\|f\|_{L^2(\Omega)} + 
+		\|h\|_{\tilde{\mathscr{H}}^1(\Sigma_2)}
+		\right)
+	\end{equation}
+\end{theorem}
+
+The proof follows the same lines as the proof of \cref{TH:5.2} with minor changes.
+
+\newpage 
+
+\subsection{\texorpdfstring{$\Omega$}{Omega} is a half-plane}
+
+Let $\Omega=\Omega_{1}$, i.e.\ the half-plane $y>0$. Then we shall assume that the coefficient $c$ is strictly positive; let the other hypotheses made for the coefficients in $I$ hold. \cref{TH:A.1} is valid, where $\Sigma_{2}$ is
+now the half-line: $y=0$, $x>0$; this theorem is a slight (and obvious) modification to Th.~2.3 in \cite{zbMATH03479447}. The existence and uniqueness theorem holds too (with the added hypothesis on $c$). The proof follows simply from the existence and uniqueness theorem for the sample equation $x u_{y}=u_{x x}-k u$ $(k>0)$ in the half-plane $\Omega_{1}$ (cfr. Th.~4.1 of \cite{zbMATH03479447}), via the method of continuity in a parameter.
+
+If $c$ is bounded (not necessarily positive) the existence and uniqueness theorem holds too, with the remark that the solution $u$ will be square summable on every strip $0<y<L$; this is the result used in the main text for the boundary regularity proof.
+
+\begin{thebibliography}{1}
+	\bibitem{zbMATH03229907}
+	S.~{Agmon}.
+	\newblock {Lectures on elliptic boundary value problems}.
+	\newblock {Van Nostrand Comp. Princeton}, 1965.
+	
+	\bibitem{zbMATH03245768}
+	J.~{Kohn} and L.~{Nirenberg}.
+	\newblock {Degenerate elliptic-parabolic equations of second order}.
+	\newblock {\em {Commun. Pure Appl. Math.}}, 20:797--872, 1967.
+	
+	\bibitem{zbMATH03160590}
+	J.-L. {Lions}.
+	\newblock {\em {\'Equations diff\'erentielles op\'erationnelles et probl\`emes
+			aux limites}}, volume 111.
+	\newblock Springer, Berlin, 1961.
+	
+	\bibitem{zbMATH03353865}
+	J.-L. {Lions} and E.~{Magenes}.
+	\newblock {\em {Non-homogeneous boundary value problems and applications}},
+	volume 181.
+	\newblock Springer, Berlin, 1972.
+	
+	\bibitem{radkevic1973second}
+	O.~{Ole\u{\i}nik} and E.~{Radkevich}.
+	\newblock {\em Second order equations with nonnegative characteristic form}.
+	\newblock American Mathematical Society, 1973.
+	
+	\bibitem{zbMATH03479447}
+	C.~D. {Pagani}.
+	\newblock {On an initial-boundary value problem for the equation \(w_t=w_{xx}-
+		xw_{y}\)}.
+	\newblock {\em {Ann. Sc. Norm. Super. Pisa, Cl. Sci., IV. Ser.}}, 2:219--263,
+	1975.
+	
+	\bibitem{zbMATH03169679}
+	J.~{Peetre}.
+	\newblock {Another approach to elliptic boundary problems}.
+	\newblock {\em {Commun. Pure Appl. Math.}}, 14:711--731, 1961.
+\end{thebibliography}
+
+\end{document}
+
