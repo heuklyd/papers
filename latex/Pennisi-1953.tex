@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+
+\title{Elementary proof that $e$ is irrational}
+\author{L.\ L.\ \textsc{Pennisi}, University of Illinois}
+\date{}
+
+\begin{document}
+	
+\noindent
+\emph{The American Mathematical Monthly}, Vol.\ 60, No.\ 7 (Aug.\ - Sep., 1953), p.\ 474
+
+{\let\newpage\relax\maketitle}
+
+\maketitle
+
+The following variation on the usual proof of the irrationality of $e$ is perhaps slightly simpler. Suppose that $e$ is rational, say $e = a / b$. Then
+\begin{equation*}
+	\frac{b}{a} = \frac{1}{e} = \sum_{n=0}^{\infty} \frac{(-1)^{n}}{n !}
+\end{equation*}
+and multiplication by $(-1)^{a+1} a!$ and transposition of terms gives
+\begin{equation*}
+	\begin{aligned}
+		(-1)^{a+1}\Bigg\{b(a-1) !&-\sum_{n=0}^{a} (-1)^{n} \frac{a !}{n !} \Bigg\} \\
+		&=\frac{1}{(a+1)}-\frac{1}{(a+1)(a+2)}+\frac{1}{(a+1)(a+2)(a+3)}-\cdots
+	\end{aligned}
+\end{equation*}
+The right side has a value between 0 and 1 since the alternating series clearly converges to a value between its first term and the sum of its first two terms. But the left side is an integer, so we have a contradiction.
+
+\end{document}

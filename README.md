@@ -12,5 +12,6 @@ Please feel free to contribute by adding other new papers or correcting typos in
 
 ## Current papers list
 
+* Pennisi, [Elementary proof that e is irrational](pdf/Pennisi-1953.pdf), 1953s
 * Pagani, [On forward-backward parabolic equations in bounded domains](pdf/Pagani-1976.pdf), 1976
 * Sussmann, [A product expansion of the Chen series](pdf/Sussmann-1986.pdf), 1986
