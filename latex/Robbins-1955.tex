@@ -1,0 +1,158 @@
+\documentclass[leqno]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\title{A remark on Stirling's formula}
+\author{\textsc{Herbert Robbins}, Columbia University}
+\date{}
+
+\newcommand{\dd}{\,\mathrm{d}}
+
+\begin{document}
+	
+\noindent
+\emph{The American Mathematical Monthly}, Vol.\ 62, No.\ 1 (Jan., 1955), pp.\ 26-29
+
+{\let\newpage\relax\maketitle}
+
+\maketitle
+
+We shall prove Stirling's formula by showing that for $n=1,2,\ldots$
+\begin{equation}
+	n !=\sqrt{2 \pi} n^{n+\frac 12} e^{-n} \cdot e^{r_n}
+\end{equation}
+where $r_{n}$ satisfies the double inequality
+\begin{equation} \label{2}
+	\frac{1}{12 n+1}<r_{n}<\frac{1}{12 n} .
+\end{equation}
+The usual textbook proofs replace the first inequality in \eqref{2} by the weaker inequality
+\begin{equation*}
+	0<r_{n}
+\end{equation*}
+or
+\begin{equation*}
+	\frac{1}{12 n+6}<r_{n}.
+\end{equation*}
+
+\begin{proof}
+	Let
+	\begin{equation*}
+		S_{n}=\log (n !)=\sum_{p=1}^{n-1} \log (p+1)
+	\end{equation*}
+	and write
+	\begin{equation} \label{3}
+		\log (p+1)=A_{p}+b_{p}-\epsilon_{p}
+	\end{equation}
+	where
+	\begin{equation*}
+		\begin{aligned}
+			A_{p} &=\int_{p}^{p+1} \log x \dd x, \quad b_{p}=\frac{1}{2}[\log (p+1)-\log p] \\
+			\epsilon_{p} &=\int_{p}^{p+1} \log x \dd x-\frac{1}{2}[\log (p+1)+\log p] .
+		\end{aligned}
+	\end{equation*}
+	The partition \eqref{3} of $\log (p+1)$, regarded as the area of a rectangle with base $(p, p+1)$ and height $\log (p+1)$, into a curvilinear area, a triangle, and a small sliver\footnote{Taken from G.\ Darmois, \emph{Statistique Mathématique}, Paris, 1928, pp.\ 315-317. The only novelty of the present note is the inequality \eqref{7} which permits the first part of the estimate~\eqref{2}.} is suggested by the geometry of the curve $y=\log x$. 
+	Then
+	\begin{equation*}
+		S_{n}=\sum_{p=1}^{n-1}\left(A_{p}+b_{p}-\epsilon_{p}\right)=\int_{1}^{n} \log x \dd x+\frac{1}{2} \log n-\sum_{p=1}^{n-1} \epsilon_{p}.
+	\end{equation*}
+	Since $\int \log x \dd x=x \log x-x$ we can write
+	\begin{equation} \label{4}
+		S_{n}=\left(n+\frac{1}{2}\right) \log n-n+1-\sum_{p=1}^{n-1} \epsilon_{p}
+	\end{equation}
+	where
+	\begin{equation*}
+		\epsilon_{p}=\frac{2 p+1}{2} \log \left(\frac{p+1}{p}\right)-1.
+	\end{equation*}
+	Using the well known series
+	\begin{equation*}
+		\log \left(\frac{1+x}{1-x}\right)=2\left(x+\frac{x^{3}}{3}+\frac{x^{5}}{5}+\cdots\right)
+	\end{equation*}
+	valid for $|x|<1$, and setting $x=(2 p+1)^{-1}$, so that $(1+x) /(1-x)=(p+1) / p$, we find that
+	\begin{equation}
+		\label{5}
+		\epsilon_{p}=\frac{1}{3(2 p+1)^{2}}+\frac{1}{5(2 p+1)^{4}}+\frac{1}{7(2 p+1)^{6}}+\cdots
+	\end{equation}
+	We can therefore bound $\epsilon_{p}$ above and below:
+	\begin{equation}
+		\label{6}
+		\begin{split}
+			\epsilon_{p} < \frac{1}{3(2 p+1)^{2}}&\left\{1+\frac{1}{(2 p+1)^{2}}+\frac{1}{(2 p+1)^{4}}+\cdots\right\} \\
+			&=\frac{1}{3(2 p+1)^{2}} \cdot \frac{1}{1-\frac{1}{(2 p+1)^{2}}}=\frac{1}{12}\left(\frac{1}{p}-\frac{1}{p+1}\right),
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\label{7}
+		\begin{split}
+			\epsilon_{p}>&\frac{1}{3(2 p+1)^{2}}\left\{1+\frac{1}{3(2 p+1)^{2}}+\frac{1}{\left[3(2 p+1)^{2}\right]^{2}}+\cdots\right\} \\
+			&=\frac{1}{3(2 p+1)^{2}} \cdot \frac{1}{1-\frac{1}{3(2 p+1)^{2}}}>\frac{1}{12}\left(\frac{1}{p+\frac{1}{12}}-\frac{1}{p+1+\frac{1}{12}}\right).
+		\end{split}
+	\end{equation}
+	Now define
+	\begin{equation} \label{8}
+		B=\sum_{p=1}^{\infty} \epsilon_{p}, \quad r_{n}=\sum_{p=n}^{\infty} \epsilon_{p}
+	\end{equation}
+	where from \eqref{6} and \eqref{7} we have
+	\begin{equation}
+		\label{9}
+		\frac{1}{13} < B < \frac{1}{12}.
+	\end{equation}
+	Then we can write \eqref{4} in the form
+	\begin{equation*}
+		S_{n}=\left(n+\frac{1}{2}\right) \log n-n+1-B+r_{n},
+	\end{equation*}
+	or, setting $C=e^{1-B}$, as
+	\begin{equation*}
+		n !=C \cdot n^{n+\frac 12} e^{-n} \cdot e^{r_{n}} \text {, }
+	\end{equation*}
+	where $r_{n}$ is defined by \eqref{8}, $\epsilon_{p}$ by \eqref{5}, and from \eqref{6} and \eqref{7} we have
+	\begin{equation*}
+		\frac{1}{12 n+1}<r_{n}<\frac{1}{12 n}.
+	\end{equation*}
+	The constant $C$, known from \eqref{9} to lie between $e^{11 / 12}$ and $e^{12 / 13}$, may be shown by one of the usual methods to have the value $\sqrt{2 \pi}$. This completes the proof.
+\end{proof}
+
+The preceding derivation was motivated by the geometrically suggestive partition \eqref{3}. The editor has pointed out that the inequalities \eqref{6} and \eqref{7} permit the following brief proof\footnote{A modification of that attributed to Cesàro by A.\ Fisher, \emph{Mathematical theory of probabilities}, New York, 1936, pp.\ 93-95.} of \eqref{2}. Let
+\begin{equation*}
+	u_{n}=n ! n^{-\left(n+\frac 12\right)} e^{n}
+\end{equation*}
+Then the series
+\begin{equation*}
+	\log \left(1+\frac{1}{n}\right)^{n+\frac 12}=1+\frac{1}{3(2 n+1)^{2}}+\frac{1}{5(2 n+1)^{4}}+\cdots
+\end{equation*}
+together with \eqref{6} and \eqref{7} yield the inequalities
+\begin{equation*}
+	\begin{split}
+		\exp & \left\{\frac{1}{12}\left(\frac{1}{n+\frac{1}{12}}-\frac{1}{n+1+\frac{1}{12}}\right)\right\}<\frac{u_{n}}{u_{n+1}}=e^{-1}\left(1+\frac{1}{n}\right)^{n+\frac 12} \\
+		& <\exp \left\{\frac{1}{12}\left(\frac{1}{n}-\frac{1}{n+1}\right)\right\}
+	\end{split}
+\end{equation*}
+Hence
+\begin{equation*}
+	v_{n}=u_{n} e^{-1 / 12 n}
+\end{equation*}
+increases and
+\begin{equation*}
+	w_{n}=u_{n} e^{-1 /(12 n+1)}
+\end{equation*}
+decreases, while
+\begin{equation*}
+	v_{n}<w_{n}=v_{n} e^{1 / 12 n(12 n+1)}.
+\end{equation*}
+Since
+\begin{equation*}
+	v_1 = e^{11/12}, \quad w_1 = e^{12/13}
+\end{equation*}
+it follows that
+\begin{equation*}
+	v_n \to C, \quad w_n \to C, \quad v_n < C < w_n, \quad e^{11/12} < C <  e^{12/13}.
+\end{equation*}
+Thus
+\begin{equation*}
+	u_n = C e^{r_n}
+\end{equation*}
+where $r_n$ satisfies \eqref{2}.
+
+\end{document}

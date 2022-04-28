@@ -1,0 +1,267 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[width=17cm,height=23cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{bbm}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{open}[proposition]{Open problem}
+\newtheorem{remark}[proposition]{Remark}
+\newtheorem{example}[proposition]{Example}
+
+% Used to rename "Problem A"
+\newtheorem{innerproblem}{Problem}
+\newenvironment{problem}[1]
+{\renewcommand\theinnerproblem{#1}\innerproblem}
+{\endinnerproblem}
+
+\crefname{equation}{eq.}{eqs.}
+\crefname{section}{Sec.}{Secs.}
+\crefname{theorem}{Th.}{Ths.}
+\crefname{problem}{Pb}{Pbs}
+
+\title{A formula for the solution of a boundary value problem for the stationary equation of Brownian motion}
+\author{Ju. P. \textsc{Gor'kov}\footnote{\emph{AMS (MOS) subject classifications (1970)}. Primary 35H05, 60J65; Secondary 35A22}}
+\date{}
+
+\DeclareMathOperator{\Ker}{Ker}
+
+\newcommand{\dd}{\,\mathrm{d}}
+
+\begin{document}
+
+\noindent
+Dokl.\ Akad.\ Nauk SSSR    
+\hspace{9cm}
+Soviet Math.\ Dokl.\
+
+\noindent
+Tom 223 (1975), No.\ 3 
+\hspace{9cm}
+Vol.\ 16 (1975), No.\ 4
+
+{\let\newpage\relax\maketitle}
+
+\maketitle
+
+
+The present note is devoted to the solution of the following boundary value problem: find a function $u(x, y)$, continuous and bounded in the region $E[x \leq 0,-\infty<y<\infty]$, satisfying for $x<0$ the equation
+\begin{equation} \label{eq:1}
+L u \equiv u_{y y}-y u_{x}=f(x, y)
+\end{equation}
+and coinciding with the function $\phi(y)$ for $x=0$, $y \leq 0$.
+
+The equation \eqref{eq:1} occurs in the study of Brownian motion, and it has been discussed in the papers \cite{zbMATH02540748,uhlenbeck1930theory,chandrasekhar1943stochastic} in connection with various mathematical problems. Let us also remark that the equation \eqref{eq:1} belongs to the class of hypoelliptic second-order equations; boundary value problems for equations of this type have been studied in the papers \cite{zbMATH03345727,zbMATH03280571}.
+
+Suppose the following conditions are satisfied:
+\begin{enumerate}
+	\item $\sup _{x, y}|f(x, y)|<\infty$, $(x, y) \in E$;
+	\item $f(x, y) \in C^{\alpha,\beta}(E)$, $1 / 3<\alpha$, $0<\beta$;
+	\item $\int_{-\infty}^{0} \int_{-\infty}^{\infty}|f(x, y)|\left(x^{2}+y^{2}\right) d x d y<\infty$;
+	\item $\phi(y)$ is continuous and $|\phi(y)|<C_{0}\left(1+|y|^{\delta}\right)$, where $C_{0}>0$, $0 \leq \delta <1 / 2$.
+\end{enumerate}
+Let
+$$
+\Phi(x, y, \xi, \eta)=\frac{\sqrt{3}}{2 \pi} \int_{0}^{\infty} \frac{1}{t^{2}} \exp \left\{-\frac{(y-\eta)^{2}}{4 t}-\frac{3}{t^{3}}\left(x-\xi+\frac{y+\eta}{2} t\right)^{2}\right\} \dd t .
+$$
+Then, because the function
+$$
+z(x, y)=-\int_{-\infty}^{0} \int_{-\infty}^{\infty} f(\xi, \eta) \Phi(x,-y, \xi,-\eta) d \xi d \eta
+$$
+satisfies equation \eqref{eq:1} as well as condition 4) (for $x=0$), it follows that the solution of the indicated problem has to be found only for $f \equiv 0$.
+
+Let us proceed to the derivation of a formula for the solution of the problem.
+Suppose $u(x, y)$ satisfies \eqref{eq:1} for $f(x, y) \equiv 0$ and the boundary condition
+\begin{equation} \label{eq:2}
+u(0, y)=\varphi(y), \quad y \leqslant 0 .
+\end{equation}
+Integrating both sides of the identity $\Phi(x,y,\xi,\eta) Lu = 0$ over the region $x \leq 0$, 
+ $-\infty < y<\infty$, we then get the equality
+\begin{equation} \label{eq:3}
+	u(\xi, \eta)+\int_{-\infty}^{\infty} y u(0, y)\Phi(0, y, \xi, \eta) \dd y=0
+\end{equation}
+Now let $\xi \rightarrow 0$ in this equality, denote $u(0, \eta)$ by $\mu(\eta)$, and use the relation
+$$
+\Phi(0, y, 0, \eta)=\frac{\sqrt{3}}{2 \pi} \frac{1}{y^{3}+y \eta+\eta^{2}}
+$$
+Then we get for $\mu(\eta)$ the equation
+\begin{equation} \label{eq:4}
+	\mu(\eta)+\frac{\sqrt{3}}{2 \pi} \int_{0}^{\infty} \frac{\tau}{\tau^{2}+\tau+1} \mu(\eta \tau) \dd \tau=f_{0}(\eta), \quad f_{0}(\eta)=-\int_{-\infty}^{0} y \varphi(y) \Phi(0, y, 0, \eta) \dd y .
+\end{equation}
+The solution of \eqref{eq:4} can be found in explicit form. In fact, if one applies the Mellin transform to the left-hand right-hand sides of \eqref{eq:4}, then one obtains the new equation
+\begin{gather*}
+	\tilde{\mu}(s)+\frac{\sqrt{3}}{2 \pi} \int_{0}^{\infty} \frac{\tau}{\tau^{2}+\tau+1}\left[\int_{0}^{\infty} \mu(\eta \tau) \eta^{s-1} \dd \eta\right] \dd \tau=\tilde{f}_{0}(s) \\
+	\left(\tilde{\mu}(s)=\int_{0}^{\infty} \mu(\eta) \cdot \eta^{s-1} \dd \eta\right).
+\end{gather*}
+It follows that
+$$
+\tilde{\mu}(s)+\frac{\sqrt{3}}{2 \pi} \tilde{\mu}(s) \int_{0}^{\infty} \frac{\tau^{1-s}}{\tau^{2}+\tau+1} \dd \tau=\tilde{f}_{0}(s).
+$$
+Now let $s=1+i \gamma,-\infty<\gamma<\infty$. Then
+$$
+\int_{0}^{\infty} \frac{\tau^{1-s}}{\tau^{2}+\tau+1} d \tau=\frac{2 \pi}{\sqrt{3}} \frac{1}{1+2 \cosh \frac{2}{3} \pi \gamma}
+$$
+and
+\begin{equation} \label{eq:5}
+	\tilde{\mu}(s)=\tilde{f}_{0}(s)-\frac{1}{4} \tilde{f}_{0}(s) \frac{1}{\cos ^{2} \frac{1}{3}\pi(1-s)}
+\end{equation}
+Applying the inverse Mellin transform to both sides of \eqref{eq:5}, one gets
+$$
+\mu(\eta)=f_{0}(\eta)-\frac{1}{8 \pi i} \int_{1-i \infty}^{1+i \infty} f_{0}(s) \frac{\eta^{-s}}{\cos ^{2} \frac{1}{3} \pi(1-s)} \dd s
+$$
+If we now make use of the formula (13) of \cite{zbMATH03088518}, \S 6.1, and take into account that
+$$
+\frac{1}{2 \pi i} \int_{1-i \infty}^{1+i \infty} \frac{\eta^{-s}}{\cos ^{2} \frac{1}{3} \pi s} \dd s=\frac{3}{2 \pi i} \eta^{\frac{3}{2}} \int_{\frac{5}{6}-i\infty}^{\frac{5}{6} +i \infty} \frac{\eta^{-3 \gamma}}{\sin ^{2} \pi \gamma} \dd \gamma=\frac{9}{\pi^{2}} \eta^{\frac{3}{2}} \frac{\ln \eta}{\eta^{3}-1}
+$$
+(see (20) in \cite{zbMATH03088518}, \S 7.2), then we get
+$$
+\frac{1}{2 \pi i} \int_{1-i\infty}^{1+i \infty} f_{0}(s) \frac{\eta^{-s}}{\cos ^{2} \frac{1}{3} \pi(1-s)} \dd s=\frac{9}{\pi^{2}} \int_{0}^{\infty} f_{0}(\eta \rho) \rho^{\frac{3}{2}} \frac{\ln \rho}{\rho^{3}-1} \dd \rho
+$$
+Hence
+\begin{equation}
+	\label{eq:6}
+	\mu(\eta)=f_{0}(\eta)-\frac{9}{4\pi^{2}} \int_{0}^{\infty} f_{0}(\eta \rho) \frac{\rho^{\frac{3}{2}} \ln \rho}{\rho^{3}-1} \dd \rho
+\end{equation}
+The expression \eqref{eq:6} can be written in a simpler form if one makes use of the equality 
+$$
+\int_0^{\infty} \frac{1}{y^2 + y \eta \rho + \eta^2 \rho^2}
+\frac{\rho^{\frac{3}{2}} \ln \rho}{\rho^{3}-1} \dd \rho
+= 
+\frac{4 \pi^2}{9} \frac{1}{y^2 + y \eta + \eta^2}
++ \frac{4\pi^2}{3 \sqrt{3}} \frac{|y|^{\frac{1}{2}} \eta^{\frac{1}{2}}}{y^3-\eta^3}
+$$
+where $f_{0}(\eta)$ has been replaced by its explicit value (see above).
+
+Finally we have
+\begin{equation}
+	\label{eq:7}\mu(\eta)=\frac{3}{2 \pi} \int_{0}^{\infty} \frac{\tau^{\frac{3}{2}}}{\tau^{3}+1} \varphi(-\tau \eta) \dd \tau .
+\end{equation}
+The relations \eqref{eq:3} and \eqref{eq:7} lead to the following formula for the solution of the problem \eqref{eq:1}, \eqref{eq:2} (for $f(x, y)=0$):
+\begin{equation}
+	\label{eq:8}
+	u(x, y)=\int_{-\infty}^{0} \gamma \varphi(\gamma) G(x, y, \gamma) \dd \gamma,
+\end{equation}
+where
+\begin{equation}
+	\label{eq:9}
+	G(x, y, \gamma)=\frac{3}{2 \pi} \int_{0}^{\infty} \frac{\tau^{\frac{3}{2}}}{\tau^{3}+1} \Phi(0,-\tau \gamma, x, y) \dd \tau-\Phi(0, \gamma, x, y).
+\end{equation}
+The function $u(x, y)$ given by \eqref{eq:8} does indeed satisfy equation \eqref{eq:1}. This is an immediate consequence of the fact that $L \Phi(\xi, \eta, x, y)=0$ for $x \neq \xi$. In order to verify the formula \eqref{eq:8} it is also necessary to check that $u(x, y) \rightarrow \phi\left(y_{0}\right)$ when $x \rightarrow-0, y \rightarrow y_{0}$ ($y_{0} \leq 0$). This can be done by use of the equality $G(0, y, \gamma) \equiv 0$ for $y<0$, $\gamma<0$.
+
+Let us now write down the formula for the solution of the problem \eqref{eq:1}, \eqref{eq:2}:
+\begin{equation}
+	\begin{split}
+		u(x, y) & = \int_{-\infty}^{0} \gamma \varphi(\gamma) G(x, y, \gamma) \dd \gamma \\
+		& -\int_{-\infty}^{0} \int_{-\infty}^{\infty} f(\xi, \eta)\left[\Phi(x, y, \xi, \eta)-\int_{-\infty}^{0} \gamma \Phi(0, \gamma, \xi, \eta) G(x, y, \gamma) \dd \gamma\right] \dd \xi \dd \eta .
+	\end{split}
+\end{equation}
+If $f(x, y)$ is defined in the whole plane and if it satisfies the same conditions for $x \geq 0$ as it does for $x \leq 0$ (see 1)-3)), then the solution of the problem \eqref{eq:1}, \eqref{eq:2} can be continued to the right half-plane across the semiaxis $y \geq 0$. The formula for the solution in the plane cut along the negative $y$-axis, including the origin, is written in similar fashion.
+
+Now let $f(x, y) \equiv 0$ and $\phi(y)=|y|^{\delta}$, $0<\delta<\frac{1}{2}$. One can show that in this case the solution to the problem \eqref{eq:1}, \eqref{eq:2} has the form
+$$
+u(x, y)=\bar{\mu}(x, y)\left(|x|^{\frac{\delta}{3}}+y^{\delta}\right),
+$$
+where $0<\mu_{0} \leq \bar{\mu}(x, y) \leq M_{1}$ ($x \leq 0$, $-\infty<y<\infty$). It follows easily from this fact that the problem \eqref{eq:1}, \eqref{eq:2} has a unique solution in the class of functions growing not faster than $M\left(|x|^{\delta / 3}+|y|^{\delta}\right)$.
+
+Let us now consider the asymptotic behavior of the function $G(x, y, \gamma)$ as $x^{2}+y^2 \to \infty$ for finite $\gamma$. 
+First we remark that if $\phi(y)=c_{1} / y+c_{2} / y^{2}+O\left(1 / y^{3}\right)$ as $y \rightarrow-\infty$,
+then 
+$$\mu(y)=-c_{1} / 2 y+c_{2} / y^{2}+O\left(1 / y^{\frac{5}{2}}\right) \quad \text{as} \quad y \rightarrow+\infty$$
+(see [7]). Further, if $\phi(y)=a_{1} y+a_{2} y^{2}+a_{3} y^{3}+O\left(y^{4}\right)$ as $y \rightarrow-0$, then
+$$\mu(y)=\frac{3}{2 \pi} \int_{-\infty}^{0} \frac{\varphi(\zeta)}{|\zeta|^{\frac{3}{2}}} \dd \zeta \cdot y^{\frac{1}{2}}+a_{1} y-\frac{a_{2}}{2} y^{2}+a_{3} y^{3}+O\left(y^{\frac{7}{2}}\right)$$
+as $y \rightarrow+0$. 
+
+Taking these formula into account on easily deduces that $G(x,y,\gamma)$ has the representation
+$$G(x, y, \gamma)=\frac{3}{2 \pi} \int_{0}^{\infty} \frac{\Phi(0, \nu, \theta, 1)-\Phi(0,0, \theta, 1)}{\nu^{\frac{3}{2}}} \dd \nu +\frac{|\gamma|^{\frac{1}{2}}}{y^{\frac{5}{2}}}+O\left(\frac{1}{y^{4}}\right)$$
+for $y>0$,$|\theta| \leq \theta_{0}$, $\theta=x / y^{3}$;
+$$G(x, y, \gamma)=\frac{3}{2 \pi} \int_{0}^{\infty} \frac{\Phi(1, \nu, 0, s)-\Phi(1,0,0, s)}{\nu^{\frac{3}{2}}} \dd \nu \frac{|\gamma|^{\frac{1}{2}}}{|x|^{\frac{3}{2}}}+O\left(\frac{1}{|x|^{\frac{4}{3}}}\right)$$
+for $|s| \leq s_{0}$, $s=y /|x|^{\frac{1}{3}}$;
+$$G(x, y, \gamma)=\frac{3}{2 \pi} \int_{0}^{\infty} \frac{\Phi(0, \nu, r,-1)-\Phi(0,0, r,-1)}{\nu^{\frac{3}{2}}} \dd \nu \frac{|\gamma|^{\frac{1}{2}}}{|y|^{\frac{5}{2}}}+O\left(\frac{1}{y^{4}}\right)$$
+for $y<0$, $|r| \leq r_{0}$, $r=x /|y|^{3}$ ; $\gamma<0$, $|\gamma| \leq \gamma_{0}$, $x \leq 0$.
+
+To conclude we will briefly consider the results from a probabilistic point of view, confining ourselves for simplicity to a homogeneous equation $(f(x, y) \equiv 0)$. For a more natural probabilistic interpretation, it is convenient to rewrite the problem \eqref{eq:1},
+\eqref{eq:2} in the form
+\begin{equation}
+	\label{eq:1'}
+	\tag{$1^\prime$}
+	\begin{split}
+		L_{1} u \equiv \frac{1}{2} \frac{\partial^{2} u}{\partial y^{2}}+y \frac{\partial u}{\partial x}=0, \quad x<0, \quad-\infty<y<\infty, \\
+		\left.u\right|_{y \geqslant 0, x=0}=\varphi\left(-2^{\frac{1}{3}} y\right) \equiv \varphi_{1}(y) .
+	\end{split}
+\end{equation}
+The operator $L_{1}$ is the infinitesimal generator of a two-dimensional Markov process, which can be described by a system of stochastic differential equations:
+\begin{equation} \label{eq:11}
+	\begin{split}
+		\dd X(t) & = Y(t) \dd t, \\
+		\dd Y(t) & =\dd\omega(t),
+	\end{split}
+\end{equation}
+where $\omega(t)$ is the standard Wiener process. The probabilistic representation of the solution of the problem \eqref{eq:1'} is easily obtained from the general theory of Markov processes. More precisely, if we denote by $\mathrm{E}_{x, y}(\cdot)$ the mathematical expectation that corresponds to the solution of the system \eqref{eq:11} with the initial condition $X(0)=x$, $Y(0)=y$, then (see \cite{zbMATH03215021})
+\begin{equation} \label{eq:12}
+u(x, y)=\mathbf{E}_{x, y} \phi_{1}(Y(\tau))=\int_{0}^{\infty} p(x, y, \gamma) \varphi_{1}(\gamma) \dd \gamma
+\end{equation}
+where $p(x, y, \gamma) \Delta \gamma =P_{x, y}\{Y(\tau) \in[\gamma, \gamma+\Delta \gamma]\}+o(\Delta \gamma)$ as $\Delta \gamma \rightarrow 0$, and where $\tau$ is the moment of first passage of the process \eqref{eq:11} on the half-line $y>0$. It follows from the representation \eqref{eq:8} and \eqref{eq:12} that
+$$
+p(x, y, \gamma)=-4^{\frac{1}{3}} \gamma G\left(x,-2^{\frac{1}{3}} y,-2^{\frac{1}{3}} \gamma\right) .
+$$
+I express my gratitude to A.\ M.\ Il'in for his interest in my work and his valuable remarks.
+
+\bigskip
+
+Institute of Mathematics and Mechanics
+
+Ural Scientific Center 
+\hspace{8cm}
+received 25/DEC/74
+
+Academy of Sciences of the USSR
+
+\begin{thebibliography}{1}
+	
+	\bibitem{zbMATH02540748}
+	A.~{Kolmogoroff}.
+	\newblock {Zuf\"allige Bewegungen.}
+	\newblock {\em {Ann. Math. (2)}}, 35:116--117, 1934.
+	
+	\bibitem{uhlenbeck1930theory}
+	G.~Uhlenbeck and L.~Ornstein.
+	\newblock On the theory of the brownian motion.
+	\newblock {\em Physical review}, 36(5):823, 1930.
+	
+	\bibitem{chandrasekhar1943stochastic}
+	S.~Chandrasekhar.
+	\newblock Stochastic problems in physics and astronomy.
+	\newblock {\em Reviews of modern physics}, 15(1):1, 1943.
+	
+	\bibitem{zbMATH03345727}
+	O.~A. {Ole\u{\i}nik} and E.~V. {Radkevich}.
+	\newblock {Second order equations with nonnegative characteristic form}.
+	\newblock {Itogi Nauki, Ser. Mat., Mat. Anal. 1969, 7-252.}, 1971.
+	
+	\bibitem{zbMATH03280571}
+	M.~{Derridj}.
+	\newblock {Sur un probl\`eme aux limites non elliptique}.
+	\newblock {\em {C. R. Acad. Sci., Paris, S\'er. A}}, 269:11--13, 1969.
+	
+	\bibitem{zbMATH03215021}
+	E.~B. {Dynkin}.
+	\newblock {\em {Markov processes. Vols. I, II. Translated.}}, volume 121/122.
+	\newblock Springer, Cham, 1965.
+	
+	\bibitem{zbMATH03088518}
+	A.~{Erd\'elyi}, W.~{Magnus}, F.~{Oberhettinger}, and F.G. {Tricomi}.
+	\newblock {Tables of integral transforms. Vol. I}.
+	\newblock {Bateman Manuscript Project. California Institute of Technology. New
+		York: McGraw-Hill Book Co. XX, 391 p.}, 1954.
+\end{thebibliography}
+
+\end{document}
+

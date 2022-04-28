@@ -1,0 +1,130 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[width=14cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathrsfs}  
+\usepackage{xcolor}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{theorem*}{Théorème}
+
+\title{\textsc{Analyse fonctionnelle} -- Suites d'opérateurs sur un espace $\mathscr{C}(K)$ de Grothendieck}
+\author{Note de \textbf{Thierry Coulhon}, présentée par Laurent Schwartz}
+\date{Remise le 21 novembre 1983}
+
+\begin{document}
+	
+\noindent
+C.\ R.\ Acad.\ Sc.\ Paris, t.\ 298, Série I, n°1, 1984
+
+{\let\newpage\relax\maketitle}
+
+\maketitle
+
+\renewcommand*\abstractname{}
+
+\begin{abstract}
+	On montre que sur un espace $\mathscr{C}(K)$ de Grothendieck, donc en particulier sur $L^\infty$, toute suite de contractions
+	linéaires convergeant fortement vers l'identité, converge uniformément.
+\end{abstract}
+
+\bigskip
+
+\textsc{Functional analysis} -- Sequences of Operators on a Grothendieck $\mathscr{C}(K)$ Space.
+
+\emph{It is shown that on a Grothendieck $\mathscr{C}(K)$ space, hence in particular on $L^\infty$, every sequence of linear contractions
+strongly converging to the identity, converges uniformly.}
+
+\bigskip
+
+\textsc{Introduction} -- Sur les espaces de Banach $\mathscr{C}(\mathrm{T})$ (où $\mathrm{T}$ est le tore), $L^{p}$ pour $1 \leqq p<+\infty$, on connaît des semi-groupes de contractions (positives de surcroît), fortement continus et non uniformément continus : par exemple le semi-groupe des translations. Il n'en est rien sur $L^{\infty}$, et J.-B.\ Baillon a conjecturé que tous les semi-groupes fortement continus de contractions sur $L^{\infty}$ sont uniformément continus. Dans un travail non publié, M.\ Talagrand a traité le cas de $l^{\infty}$. On montre ici que la conjecture est vraie pour les espaces $\mathscr{C}(K)$ de Grothendieck (donc $L^{\infty}$, $\mathscr{C}(K)$ où $K$ est $\sigma$-stonien ou un $\mathrm{F}$-espace \cite{1}, mais aussi d'autres espaces; construits par R.\ Haydon \cite{2} et M.\ Talagrand \cite{3}) : elle découle d'un résultat beaucoup plus général, et de démonstration très simple, sur les suites de contractions linéaires dans de tels espaces.
+
+\bigskip
+
+\textsc{Rappel et notations} -- Un espace de Banach $\mathrm{X}$ est dit de Grothendieck si toute suite préfaiblement convergente du dual $\mathrm{X}^{*}$ est aussi faiblement convergente.
+
+Dans la suite, $\mathscr{C}(K)$ désignera l'espace des fonctions numériques continues, et $M(K)$ l'espace des mesures de Radon, sur l'espace topologique compact $K$. On notera $\delta_{x}$ la mesure de Dirac en $x \in K$, et $\mathrm{T}^{*}$ le transposé d'un opérateur $\mathrm{T}$.
+
+\begin{theorem*}
+	Soit $K$ un espace compact tel que $\mathscr{C}(K)$ soit de Grothendieck et $\left(\mathrm{T}_{n}\right)_{n \in \mathbb{N}}$ une suite de contractions linéaires de $\mathscr{C}(K)$ telle que, $\forall f \in \mathscr{C}(K), \mathrm{T}_{n} f \underset{n \to + \infty}{\longrightarrow} f$.
+	Alors :
+	\begin{equation*}
+		\left\|\mathrm{T}_{n}-\mathrm{Id}\right\|\underset{n \to + \infty}{\longrightarrow}0.
+	\end{equation*}
+\end{theorem*}
+
+\begin{proof}
+	Notons $\mu_{n, x}=\mathrm{T}_{n}^{*} \delta_{x}-\delta_{x}$, pour $n \in \mathbb{N}$ et $x \in K$. Alors :
+	\begin{equation*}
+		\forall f \in \mathscr{C}(K), \quad \underset{x \in K}{\operatorname{Sup}} \left|\mu_{n, x}(f)\right|=\underset{x \in K}{\operatorname{Sup}}\left|\mathrm{T}_{n} f(x)-f(x)\right|=\left\|\mathrm{T}_{n} f - f\right\|\underset{n \to + \infty}{\longrightarrow} 0.
+	\end{equation*}
+	Donc, pour toute suite $\left(x_{n}\right)_{n \in \mathbb{N}}$ de points de $K$, la suite des mesures $\left(\mu_{n, x_{n}}\right)_{n \in \mathbb{N}}$ converge préfaiblement vers zéro dans $M(K)$. Mais la propriété de Grothendieck nous assure qu'en fait cette convergence est faible. L'application qui à une mesure associe sa partie discrète étant continue, donc faiblement continue, de $M(K)$ dans $l^{1}(K)$, la suite des parties discrètes des $\mu_{n, x_{n}}$ converge faiblement, donc fortement (car $l^{1}(K)$ possède la propriété de Schur) vers zéro.
+	
+	En particulier :
+	\begin{equation*}
+		\left|\mu_{n, x_{n}}\left(\left\{x_{n}\right\}\right)\right| \underset{n \rightarrow+\infty}{\longrightarrow} 0 .
+	\end{equation*}
+	Or :
+	\begin{equation*}
+		\begin{aligned}
+			\left\|\mu_{n, x}\right\|=\left|\mu_{n, x}(\{x\})\right|+\left|\mu_{n, x}\right|(K /\{x\}) &=\left|\mathrm{T}_{n}^{*} \delta_{x}(\{x\})-1\right|+\left|\mathrm{T}_{n}^{*} \delta_{x}\right|(K /\{x\}) \\
+			&=\left|\mathrm{T}_{n}^{*} \delta_{x}(\{x\})-1\right|+\| \mathrm{T}_{n}^{*} \delta_{x}\|-\left|\mathrm{T}_{n}^{*} \delta_{x}(\{x\})\right|;
+		\end{aligned}
+	\end{equation*}
+	$\mathrm{T}_{n}$ étant une contraction, $\left\|\mathrm{T}_{n}^{*} \delta_{x}\right\| \leqq 1$, et l'on obtient finalement :
+	\begin{equation*}
+		\left\|\mu_{n, x}\right\| \leqq 2\left|\mu_{n, x}(\{x\})\right| .
+	\end{equation*}
+	On déduit donc de ce qui précéde que, pour toute suite $\left(x_{n}\right)_{n \in \mathbb{N}}$ de points de $K$, $\left\|\mu_{n, x_{n}}\right\| \underset{n \rightarrow+\infty}{\longrightarrow} 0$, c'est-à-dire que $\underset{x \in K}{\operatorname{Sup}} \left\|\mu_{n, x}\right\| \underset{n \rightarrow+\infty}{\longrightarrow} 0$.
+	Or :
+	\begin{equation*}
+		\underset{x \in K}{\operatorname{Sup}} \left\|\mu_{n, x}\right\|
+		= \underset{x \in K}{\operatorname{Sup}} \underset{\substack{f \in \mathscr{C}(K) \\ \|f\| \leqq 1}}{\operatorname{Sup}} \left| \mathrm{T}_nf(x) - f(x) \right|
+		= \underset{\substack{f \in \mathscr{C}(K) \\ \|f\| \leqq 1}}{\operatorname{Sup}} \left\| \mathrm{T}_nf - f \right\|
+		= \left\| \mathrm{T}_n - \mathrm{Id} \right\|.
+	\end{equation*}
+	Donc :
+	\begin{equation*}
+		\left\|\mathrm{T}_{n}-\mathrm{Id}\right\| \underset{n \rightarrow+\infty}{\longrightarrow} 0.
+	\end{equation*}
+\end{proof}
+
+\emph{Remarques}. -- 1. Il est facile de voir qu'on peut remplacer dans l'énoncé du théorème, l'hypothèse ``contractions", c'est-à-dire $\left\|\mathrm{T}_{n}\right\| \leqq 1 \forall n$, par l'hypothèse $\varlimsup \left\|\mathrm{T}_{n}\right\| \leqq 1$.
+
+2. Il résulte facilement du théorème et de la remarque 1 que tout semi-groupe $\left(\mathrm{T}_{t}\right)_{t \geqq 0}$ fortement continu d'opérateurs sur un espace $\mathscr{C}(\mathrm{K})$ de Grothendieck, vérifiant $\varlimsup_{t \rightarrow 0^{+}}\left\|T_{t}\right\| \leqq 1$, est uniformément continu.
+
+3. De même, une suite d'opérateurs positifs sur un espace $\mathscr{C}(\mathrm{K})$ de Grothendieck; convergeant fortement vers l'identité, converge uniformément. En effet, la remarque 1 permet de conclure puisque $\left\|T_{n}\right\|=\left\|T_{n} 1\right\| \underset{n \rightarrow+\infty}{\longrightarrow} 1$. Cet énoncé, que nous avons obtenu en premier lieu, nous a été suggéré par A.\ Ancona et G.\ Mokobodzki. Il s'avère cependant que le cas d'un espace $L^{\infty}(\mu)$ était déjà connu \cite{4}.
+
+4. En particulier les semi-groupes fortement continus d'opérateurs positifs sur un espace $\mathscr{C}(\mathrm{K})$ de Grothendieck sont uniformément continus, et vérifient a fortiori une majoration du type $\left\|\mathrm{T}_{t}\right\| \leqq e^{\omega t}, \omega \in \mathbb{R}$. Ceci contraste avec la situation générale, par exemple sur $\mathscr{C}(T)$, où l'on sait construire des semi-groupes fortement continus d'opérateurs positifs tels que $1 / t \log \left\|\mathrm{T}_{t}\right\| \underset{t\to0^+}{\longrightarrow} +\infty$, \cite{5}.
+
+\bigskip
+
+\emph{N.B.} Cette note une fois rédigée, nous lisons dans l'exposé de Roland Derndinger, ``Betragshalbgruppen normstetiger Operatorhalbgruppen", qui figure dans le compte rendu du semestre d'été 1983 du Séminaire d'Analyse Fonctionnelle de Tübingen, une référence à un article à paraître de H.\ P.\ Lotz, qui contient, semble-t-il, un résultat de même nature que le nôtre.
+
+\renewcommand{\refname}{Références bibliographiques}
+\begin{thebibliography}{1}
+	
+	\bibitem{1} G.\ L.\ Seever, \emph{Measures on F-Space}, Trans.\ Amer.\ Math.\ Soc, 133, 1968, p.\ 267-280.
+	
+	\bibitem{2} R.\ Haydon, \emph{A Non-Reflexive Grothendieck Space that Does not Contain $l^\infty$}, Israël J.\ Math., 40, n°1,
+	1981, p.\ 65.
+	
+	\bibitem{3} M.\ Talagrand, \emph{Un nouveau $\mathscr{C}(K)$ qui possède la propriété de Grothendieck}, Israël J.\ Math., 37, n°1-2,
+	1980, p.\ 181. 
+
+	\bibitem{4} A.\ Kishtmoto et D.\ W.\ Robinson, \emph{Subordinate Semi-Groups and Order Properties}, J.\ Austral.\ Math.\
+	Soc, séries A, 31, 1981, p.\ 59.
+	
+	\bibitem{5} C.\ J.\ K.\ Batty et E.\ B.\ Davies, \emph{Positive Semi-groups and Resolvents}, prépublication, 1982.
+\end{thebibliography}
+
+\begin{flushright}
+	Équipe d'analyse, Équipe de Recherche associée au C.N.R.S., n° 294,
+	
+	Université Paris-VI, Tour 46, 4, place Jussieu 75230 Paris Cedex 05.
+\end{flushright}
+
+\end{document}
