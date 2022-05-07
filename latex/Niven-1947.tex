@@ -1,0 +1,53 @@
+\documentclass[leqno]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+\newcommand\blfootnote[1]{
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}
+	\addtocounter{footnote}{-1}
+	\endgroup
+}
+
+\title{A simple proof that $\pi$ is irrational}
+\author{Ivan Niven}
+\date{}
+
+\newcommand{\dd}{\,\mathrm{d}}
+
+\begin{document}
+	
+\noindent
+\emph{Bulletin of the American Mathematical Society}, Vol.\ 53 (6), p.\ 509, 1947
+\blfootnote{Received by the editors November 26, 1946, and, in revised form, December 20, 1946.}
+
+{\let\newpage\relax\maketitle}
+
+\maketitle
+
+Let $\pi=a / b$, the quotient of positive integers. We define the polynomials
+\begin{align*}
+	f(x) &=\frac{x^{n}(a-b x)^{n}}{n !}, \\
+	F(x) &=f(x)-f^{(2)}(x)+f^{(4)}(x)-\cdots+(-1)^{n} f^{(2 n)}(x),
+\end{align*}
+the positive integer $n$ being specified later. Since $n ! f(x)$ has integral coefficients and terms in $x$ of degree not less than $n, f(x)$ and its derivatives $f^{(j)}(x)$ have integral values for $x=0$; also for $x=\pi=a / b$, since $f(x)=f(a / b-x)$. By elementary calculus we have
+\begin{equation*}
+	\frac{\dd}{\dd x}\left\{F'(x) \sin x-F(x) \cos x\right\}=F''(x) \sin x+F(x) \sin x=f(x) \sin x
+\end{equation*}
+and
+\begin{equation} \label{1}
+	\int_{0}^{\pi} f(x) \sin x \dd x=\left[F'(x) \sin x-F(x) \cos x\right]_{0}^{\pi}=F(\pi)+F(0).
+\end{equation}
+Now $F(\pi)+F(0)$ is an \emph{integer}, since $f^{(j)}(\pi)$ and $f^{(j)}(0)$ are integers. But for $0<x<\pi$,
+\begin{equation*}
+	0<f(x) \sin x<\frac{\pi^{n} a^{n}}{n !},
+\end{equation*}
+so that the integral in \eqref{1} is positive, but arbitrarily small for $n$ sufficiently large. Thus \eqref{1} is false, and so is our assumption that $\pi$ is rational.
+
+\bigskip
+\textsc{Purdue University}
+
+\end{document}
