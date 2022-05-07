@@ -1,6 +1,6 @@
 # Papers
 
-This project gathers a few digitized mathematical papers of the 20th century, which are either hard to find online, or only available with low-quality typesetting. The goal is to make these works more easily accessible and more pleasant to read.
+This project, online at [https://heuklyd.github.io/papers/](https://heuklyd.github.io/papers/) gathers a few digitized mathematical papers of the 20th century, which are either hard to find online, or only available with low-quality typesetting. The goal is to make these works more easily accessible and more pleasant to read.
 
 ## Typesetting
 
