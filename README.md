@@ -15,6 +15,7 @@ Please feel free to contribute by adding other new papers or correcting typos in
 ## Current papers list 
 
 - [**Coulhon**, Suites d'opérateurs sur un espace C(K) de Grothendieck](pdf/Coulhon-1984.pdf), 1984
+- [**Fleming**, A problem of random accelerations](pdf/Fleming-1963.pdf), 1963
 - [**Gorkov**, A formula for the solution of a boundary value problem for the stationary equation of Brownian motion](pdf/Gorkov-1975.pdf), 1975
 - [**Niven**, A simple proof that pi is irrational](pdf/Niven-1947.pdf), 1947
 - [**Pagani**, On forward-backward parabolic equations in bounded domains](pdf/Pagani-1976.pdf), 1976

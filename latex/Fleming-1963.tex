@@ -1,0 +1,760 @@
+\documentclass[leqno]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{enumerate}
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{theorem*}{Theorem}
+
+\crefname{section}{\S}{\S's}
+\crefformat{section}{§#2#1#3}
+
+\title{A problem of random accelerations}
+\author{Wendell H.\ Fleming}
+\date{
+	MRC Technical Summary Report \#403\\
+	June 1963
+}
+
+\newcommand{\dd}{\,\mathrm{d}}
+
+\begin{document}
+	
+\noindent
+Sponsored by the Mathematics Resaarch Center, U. S.\ Army, Madison, \\ 
+Wisconsin, under Contract No.\ : DA-11-022-ORD-2059.
+
+{\let\newpage\relax\maketitle}
+
+\maketitle
+
+\renewcommand*\abstractname{}
+
+\begin{abstract}
+	The partial differential equation $y u_x + u_{yy} = 0$ is solved in a vertical strip.
+	The method is first to solve the equation in the upper and lower halves of the strip.
+	By matching $u$ and $u_y$ across the $x$-axis a singular integral equation for $u_x(x,0)$ is obtained.
+	This is converted into an equation with Cauchy kernel whose solutions are explicitly known.
+\end{abstract}
+
+\section{}
+\label{sec1}
+
+In this report we consider the linear partial differential equation
+\begin{equation}
+	\label{1.1}
+	y u_x + u_{yy} = 0
+\end{equation}
+in a vertical strip $0<x<1$, $-\infty<y<\infty$, together with the boundary data
+\begin{equation}
+	\label{1.2}
+	u(0,y) = U_0(y) \quad \text{if } y < 0, 
+\end{equation}
+\begin{equation*}
+	u(1,y) = U_1(y) \quad \text{if } y > 0. 
+\end{equation*}
+This problem arises in the study of a randomly accelerated particle moving in the interval $(0,1)$.
+Let $\xi(t)$ be the position of the particle at time $t$, and $t_1$ the first time when $\xi(t) = 0$ or $1$.
+The velocity $v(t)$ is given by a Brownian motion process,
+\begin{equation*}
+	E\{ \Delta v\} = 0, \quad 
+	E\{ (\Delta v)^2 \} = \sigma \Delta t,
+\end{equation*}
+where $E\{~\}$ denotes expected value and we normalize by taking $\sigma^2 = 2$.
+Equation \eqref{1.1} is the steady state form of the backward equation for the vector Markov process $(\xi(t),v(t))$.
+The probabilistic interpretation of $u(x,y)$ is as a conditional expected value:
+\begin{equation}
+	\label{1.3}
+	u(x,y) = E\{ U_2[v(t_1)] \rvert \xi(0) = x, v(0) = y \},
+\end{equation}
+where $U_2(y)=U_0(y)$ if $y < 0$, $U_2(y) = U_1(y)$ if $y > 0$.
+
+Our object is to give a fairly explicit formula for $u(x,y)$.
+The method is first to solve \eqref{1.1} separately in the upper and lower halves of the strip.
+This is done in \cref{sec2,sec3} using Fourier transforms and constructing Green's functions.
+By matching $u$ and $u_y$ across the $x$-axis a singular integral equation for $u_x(x,0)$ is obtained in \cref{sec4}.
+This is converted into an integral equation of the second kind with Cauchy kernel whose solutions are known explicitly.
+In \cref{sec5} a uniqueness theorem is proved. 
+By probabilistic methods it can be shown that the solution $u$ of \eqref{1.1}-\eqref{1.2} which we get actually is given by \eqref{1.3}.
+However, this is not done here.
+
+This report was initiated by a conversation at the Mathematics Research Center between S.\ Agmon and the author.
+Agmon later made several more helpful suggestions, and in particular pointed out that the integral equation \eqref{4.3} can be reduced to an equation of the second kind with Cauchy kernel.
+
+\section{}
+\label{sec2}
+
+In this section, we shall consider the equation
+\begin{equation} \label{2.1}
+	-y v_{x}+v_{y y}=0
+\end{equation}
+in the upper half-plane $y>0$, with the boundary data
+\begin{equation} \label{2.2}
+	v(x, 0) = \psi(x), \quad-\infty<x<\infty.
+\end{equation}
+It is assumed that $\psi$ is continuous with compact support, that $\psi(x)=0$ for $x \leq 0$, and that $\psi'$ is continuous except at 0 and 1.
+Let $\hat{v}$ be the Fourier transform in the variable $x$:
+\begin{equation*}
+	\hat{v}(\tau, y)=\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} v(x, y) e^{i \tau x} \dd x, \quad y>0.
+\end{equation*}
+This changes \eqref{2.1} into the ordinary differential equation
+\begin{equation} \label{2.3}
+	\hat{v}_{y y}+i\tau y \hat{v}=0
+\end{equation}
+whose solutions are given in terms of Bessel functions of orders $\pm 1 / 3$ as follows. Let
+\begin{equation*}
+	z=\frac{2}{3}\left(i \tau y^{3}\right)^{\frac{1}{2}}.
+\end{equation*}
+Occasionally we must consider not merely real $\tau$ but complex $\tau = \tau_1 + i\tau_2$ in the upper half-plane.
+Let us agree that
+\begin{equation*}
+	\frac \pi 2 \leq \arg i \tau \leq \frac{3\pi}{2},
+	\quad 
+	\arg (i\tau a)^\lambda = \lambda \arg i \tau a
+\end{equation*}
+for any $a > 0$ and $\lambda$.
+In particular, $z$ belongs to the quadrant $Q: \pi/4 \leq \arg z \leq 3 \pi / 4$.
+The general solution of \eqref{2.3} is
+\begin{equation*}
+	\hat{v} = (i \tau y)^{\frac 12} \left[ A(\tau) J_{-\frac 13}(z) + B(\tau) J_{\frac 13}(z) \right]
+\end{equation*}
+We want a solution of \eqref{2.1} which is $0$ for $x \leq 0$ and tends rapidly to $0$ as $x \to \infty$.
+Therefore, we choose the coefficients $A(\tau)$ and $B(\tau)$ so that
+\begin{equation}
+	\label{2.4}
+	\hat{v}(\tau,y) = \hat{\psi}(\tau) H(z),
+\end{equation}
+where the function $H$ is defined as follows.
+For $z \in Q$
+\begin{equation*}
+	J_n(z) = \frac{1}{(2\pi z)^{\frac 12}} \left\{
+	e^{c\pi i} W_{0,n}(2iz)
+	+ e^{-c\pi i} W_{0,n}(-2iz)
+	\right\},
+\end{equation*}
+where $c = \frac 12 \left(n+\frac 12\right)$ and $W_{0,n} = W_{0,-n}$ is Whittaker's funciton, which has the asymptotic expansion as $z \to \infty$ in $Q$
+\begin{align}
+	\label{2.5}
+	W_{0,n}(2iz) & = e^{-iz} \left\{ 1 + \sum_{j=1}^m a_j z^{-j} + O(z^{-m})\right\}, \\
+	\nonumber
+	j! (8i)^j a_j &= \prod_{l = 1}^j \left\{4n^2-(2l-1)^2\right\}.
+\end{align}
+See \cite[p.\ 362]{WW}.
+Writing $W = W_{0,\frac 13}$ for short,
+\begin{equation*}
+	J_{-\frac 13}(z) + e^{\frac{2\pi i}{3}} J_{\frac 13}(z) = \frac{e^{\frac{i\pi}{4}}+e^{-\frac{i\pi}{12}}}{(2\pi z)^{\frac 12}} W(-2iz).
+\end{equation*}
+Let
+\begin{equation}
+	\label{2.6}
+	H(z) = C_1 z^{-\frac 16} W(-2iz),
+\end{equation}
+where the constant $C_1$ is chosen so that $H(0)=1$.
+Then $H(z)$ tends exponentially to $0$ as $z \to \infty$ in $Q$, and since $H$ is analytic the same is true of each derivative $H^{(k)}(z)$.
+The function $H$ has the convergent expansion about $0$
+\begin{equation*}
+	H(z) = 1 + \text{power series in } z^2 + C_2 z^{\frac 23} \text{(power series in $z^2$)}.
+\end{equation*}
+
+Since $\hat{v}$ is a product in \eqref{2.4}, $v$ is the convolution (in $x$) of $\psi$ and the function $G$ whose transform $\hat{G} = H$.
+By the inversion formula,
+\begin{equation}
+	\label{2.7}
+	G(x,y) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} H(z)e^{-ix\tau} \dd \tau,
+	\quad 
+	y > 0.
+\end{equation}
+The function $G$ is of class $C^\infty$ and satisfies \eqref{2.1}.
+
+Since $|H(z)| \leq C_3 e^{-|z|}$ for every $z \in Q$, $\int_{-\infty}^{\infty}|H|^2 \dd \tau_1$ is bounded independent of $\tau_2 \geq 0$ (the bound depends on $y$).
+Therefore \cite[p.\ 8]{PW} $G(x,y) = 0$ for $x < 0$.
+Using the formula $(2\pi)^{-\frac 12} \widehat{f_1 * f_2} = \hat{f}_1 \hat{f}_2$,
+\begin{equation}
+	\label{2.8}
+	v(x,y) = \frac{1}{\sqrt{2\pi}} \int_0^x \psi(\xi) G(x-\xi,y) \dd \xi,
+	\quad y > 0.
+\end{equation}
+The integral is from $0$ to $x$ since both $\psi$ and $G$ vanish for $x < 0$.
+The function $v$ is of class $C^\infty$, satisfies \eqref{2.1}, and $v(x,y) = 0$ for $x \leq 0$.
+It remains to verify \eqref{2.2} and find a formula for the normal derivative $v_y(x,0^+)$.
+Let
+\begin{equation}
+	\label{2.9}
+	g(x) = \frac{1}{\sqrt{2\pi}} G(x,1).
+\end{equation}
+The substitution $\sigma = \tau y^3$ in \eqref{2.7} shows that
+\begin{equation*}
+	y^{-3} g(y^{-3}x) = \frac{1}{\sqrt{2\pi}} G(x,y).
+\end{equation*}
+If we set $g_a(x) = a^{-1} g(a^{-1}x)$, then
+\begin{equation}
+	\label{2.8'}
+	\tag{2.8'}
+	v(x,y) = \psi * g_a,
+	\quad 
+	a = y^3.
+\end{equation}
+The function $g$ is bounded.
+Setting $y = 1$ in \eqref{2.7} and integrating by parts,
+\begin{equation*}
+	x g(x) = - \frac{i}{\sqrt{2\pi}} \int_{-\infty}^{\infty} H_\tau e^{-i\tau x} \dd \tau.
+\end{equation*}
+[Unless otherwise indicated $\tau$ is real.]
+Since $H_\tau = O(\tau^{-\frac 23})$ as $\tau \to 0$ and $H_\tau$ tends rapidly to $0$ as $|\tau|\to \infty$, $H_\tau$ belongs to $L^p(-\infty,\infty)$ for $1\leq p<3/2$.
+Therefore $xg(x)$ is bounded and belongs to $L^q(-\infty,\infty)$ for $q>3$ \cite[12.41]{Z}.
+By Hölder's inequality, $g \in L^1(-\infty,\infty)$, and from the inversion formula
+\begin{equation*}
+	1 = H(0) = \int_{-\infty}^{\infty} g(x) \dd x.
+\end{equation*}
+Thus the functions $g_a$ form an approximate identity as $a \to 0^+$.
+
+\begin{lemma*}
+	Let $f$ be an integrable function with compact support and $A$ an open interval on which $f$ is continuous. 
+	Then
+	\begin{equation*}
+		f(x) = \lim_{a \to 0^+} (f * g_a)(x)
+	\end{equation*}
+	for every $x \in A$.
+	The convergence is uniform on closed subintervals of $A$ and at~$\infty$.
+\end{lemma*}
+
+This result is well known.
+Applying the lemma with $f = \psi$, $v(x,y)\to\psi(x)$ uniformly as $y \to 0^+$.
+(Actually, $g \geq 0$. Since $v$ is $0$ at infinity the maximum principle for parabolic equations shows that $v \geq 0$ for any $\psi \geq 0$, and this implies $g \geq 0.$)
+
+Applying this lemma with $f = \psi'$, $v_x(x,y)\to\psi'(x)$ as $y \to 0^+$, uniformly on any closed interval not containing $0$ or $1$.
+In view of \eqref{2.1}, $v_{yy}\to 0$ uniformly on such closed intervals, and hence $v_y(x,y)$ also tends uniformly on such intervals to a limit $v_y(x,0^+)$.
+
+Let us now show that
+\begin{equation}
+	\label{2.10}
+	v_y(x,0^+) = C_4 \int_0^x \psi'(\xi) (x-\xi)^{-\frac 1 3} \dd \xi,
+	\quad 0 < x < 1.
+\end{equation}
+Now $\hat{v}_y = \hat{\psi}\hat{H}_y$ from \eqref{2.4}, and hence
+\begin{equation*}
+	\hat{v}_y(\tau,y) = \left(\frac 23\right)^{-\frac 1 3} \hat{\psi}(\tau) (i\tau)^{\frac 1 3} z^{\frac 13} H'(z), 
+	\quad y > 0.
+\end{equation*}
+From the expansion of $H(z)$ about $0$,
+\begin{equation}
+	\label{2.11}
+	\lim_{y\to0^+} \hat{v}_y(\tau,y) = \left(\frac 2 3\right)^{\frac 2 3} C_2 \hat{\psi}(\tau) (i\tau)^{\frac 13}
+\end{equation}
+for every $\tau$. 
+But $z^{\frac 13} H'(z)$ is bounded; and from the assumptions about $\psi$, $\hat{\psi}$ is bounded and $\hat{\psi}(\tau) = O(\tau^{-1})$ as $|\tau|\to\infty$.
+Hence $\int_{-\infty}^{\infty} |\hat{v}_y|^2\dd\tau$ is bounded and the convergence in \eqref{2.11} is also in $L^2$-norm.
+By Parseval's formula, $v_y(x,y)$ tends to $v_y(x,0^+)$ in $L^2$-norm as $y\to0^+$.
+
+Let $x_+^a = x^a$ if $x > 0$, and $x_+^a = 0$ if $x < 0$.
+For $a < -1$, $x_+^a$ is to be interpreted as a generalized function or Schwartz distribution.
+Its Fourier transform is
+\begin{equation*}
+	\widehat{x_+^a} = \Gamma(a) (-i\tau)^{-a-1}.
+\end{equation*}
+In our case $a = 1/3$.
+Using a theorem about Fourier transforms of distributions of class $\mathcal{D}'_{Lp}$ \cite[p.\ 57, 126]{S}, we obtain from \eqref{2.11}
+\begin{equation*}
+	v_y(x,0^+) = C_5 \psi * x_+^{-\frac 4 3}
+\end{equation*}
+But $x_+^{-\frac 4 3}$ is the derivative of $-3x_+^{-\frac 1 3}$, and since the derivative can be applied to either factor in a convolution,
+\begin{equation*}
+	\psi * x_+^{-\frac 4 3} = - 3 \psi' * x_+^{-\frac 1 3}.
+\end{equation*}
+If $0 < x < 1$ the right side is given by the ordinary convolution integral and we have the desired formula \eqref{2.10}.
+
+\section{}
+\label{sec3}
+
+Let us next find a solution $V$ of \eqref{2.1} in the quarter-plane $x>0$, $y>0$ with the boundary data
+\begin{align}
+	\label{3.1}
+	V(0,y) &= U(y), \quad y > 0,
+	\\
+	\nonumber
+	V(x,0) &= 0, \quad x > 0.
+\end{align}
+The method is to construct a Green's function $F(x-\xi,y,\eta)$ for the operator $L(V)=-yV_x+V_{yy}$ and the upper half-plane.
+It must satisfy the equation $L(F)=\delta(x-\xi,y-\eta)$ in the variables $(x,y)$ and the adjoint equation $M(F) = \delta(x-\xi,y-\eta)$ in $(\xi,\eta)$ where $\delta$ is Dirac's delta function.
+Moreover, $F(x,y,\eta) = 0$ for $x \leq 0$ and all $y, \eta > 0$ and for $y=0,\infty$ and all $x,\eta > 0$.
+From the formula
+\begin{equation*}
+	VM(F) - FL(V) = \eta (VF)_\xi + VF_{\eta\eta} - F V_{\eta\eta}
+\end{equation*}
+and integration by parts, one gets formally
+\begin{equation}
+	\label{3.2}
+	V(x,y) = \int_0^{\infty} \eta F(x,y,\eta) U(\eta) \dd \eta, \quad y \geq 0.
+\end{equation}
+
+Let us proceed to find $F$ and conditions on $U$ such that \eqref{3.2} in fact gives a solution to \eqref{3.1}.
+Since the method is well known certain details will be merely indicated.
+The Fourier transform $\hat{F}(\tau,y,\eta)$ must satisfy the transformed equation
+\begin{equation*}
+	\hat{F}_{yy} + i\tau y \hat{F} = \delta(y-\eta).
+\end{equation*}
+$\hat{F}$ must be continuous at $y = \eta$ and
+\begin{equation*}
+	\hat{F}_y(\tau,\eta^+,\eta)-\hat{F}_y(\tau,\eta^-,\eta)=1.
+\end{equation*}
+
+For each $\tau$ the function $H(z)$ is a solution of \eqref{2.3} vanishing at $y = \infty$, and
+\begin{equation*}
+	K(z) = z^{\frac 13} J_{\frac 13}(z)
+\end{equation*}
+is a solution vanishing at $y = 0$.
+Let us take
+\begin{align*}
+	\hat{F} & = a(\tau) K(z) H(\zeta), \quad \text{if } 0 \leq y < \eta,\\
+	\hat{F} & = a(\tau) H(z) K(\zeta), \quad \text{if } 0 \leq \eta < y,
+\end{align*}
+where $\zeta = \frac 2 3 (i \tau \eta^3)^{\frac 12}$.
+By a short calculation, using the identity $z(J_{\frac13} J_{-\frac13}'-J_{-\frac13}J_{\frac13}') = - \sqrt{3} / \pi$, the two conditions at $y = \eta$ give for a suitable constant $c_1$
+\begin{equation}
+	\label{3.2b} \tag{3.2'}
+	\hat{F} = c_1 (i\tau)^{-\frac13} K(z) H(\zeta), \quad \text{if } 0 \leq y < \eta,
+\end{equation}
+and $\hat{F}(\tau,\eta,y) = \hat{F}(\tau,y,\eta)$.
+Equation \eqref{3.2b} can be rewritten
+\begin{equation}
+	\label{3.2bb} \tag{3.2''}
+	\hat{F} = \left(\frac 2 3\right)^{\frac 2 3} c_1 y z^{-\frac13}J_{\frac13}(z)K(\zeta),
+	\quad 0 \leq y < \eta.
+\end{equation}
+From \eqref{3.2bb} and the asymptotic expansion \eqref{2.5}, 
+\begin{equation*}
+	|\hat{F}| \leq c_2 y \exp (|z|-|\zeta|), 
+	\quad 0 \leq y < \eta.
+\end{equation*}
+The inverse transform $F$ is of class $C^\infty$ in $(x,y,\eta)$ so as long as $y \neq \eta$ (also for $y = \eta$, $x > 0$ from \eqref{3.3} below), and $F$ satisfies \eqref{2.1} in $(x,y)$.
+It vanishes for $x \leq 0$, and $F(x,\eta,y) = F(x,y,\eta)$.
+Moreover, $(xF)_x = i\tau \hat{F}_\tau$ from which together with \eqref{3.2bb} and the formulas
+\begin{equation*}
+	i\tau \frac{\partial z}{\partial \tau} = \frac{i}{2} z, \quad 
+	i\tau \frac{\partial \zeta}{\partial \tau} = \frac{i}{2} \zeta
+\end{equation*}
+we get the estimate
+\begin{equation*}
+	\widehat{(xF)}_x \leq c_3 y \exp(|z|-|\zeta|),
+	\quad 0 \leq y < \eta.
+\end{equation*}
+If $|y-\eta|$ is bounded away from $0$, then $F$ and $(xF)_x$ are bounded.
+Hence so is $x F_x = (xF)_x - F$.
+
+Let $\Omega$ be the fundamental solution of the heat equation:
+\begin{align*}
+	\Omega(x,y) & = \frac{1}{\sqrt{4\pi x}} e^{-\frac{y^2}{4x}}, && x > 0 \\
+	& = 0, && x \leq 0,
+\end{align*}
+whose Fourier transform (in $x$) is
+\begin{equation*}
+	\hat{\Omega}(\tau,y) = \frac{1}{2i(i\tau)^{\frac 12}} e^{i(i\tau)^{\frac 12}|y|}.
+\end{equation*}
+Let
+\begin{equation*}
+	Y = \frac 2 3 \left(\eta^{\frac 32} - y^{\frac 32}\right), \quad (i\tau)^{\frac 12} Y = \zeta - z.
+\end{equation*}
+A short calculation taking account of \eqref{2.5} and \eqref{2.6} shows that
+\begin{equation*}
+	\hat{F}(\tau,y,\eta) = y^{-\frac 14} \eta^{-\frac 14} [ \hat{\Omega}(\tau,Y) + \hat{\Psi}(\tau,y,\eta) ]
+\end{equation*}
+where $\hat{\Psi}$ and $\widehat{(x\Psi)}_x = i\tau\hat{\Psi}_\tau$ are integrable in $\tau$, uniformly with respect to $(y,\eta)$ so long as $y$ and $\eta$ are bounded away from $0$.
+Then
+\begin{equation}
+	\label{3.3}
+	F(x,y,\eta) = y^{-\frac 14} \eta^{-\frac 14} [ \Omega(x,Y) + \Psi(x,y,\eta) ],
+\end{equation}
+where $\Psi$ and $x\Psi_x$ are bounded so long as $y$ and $\eta$ are bounded away from $0$.
+Moreover given $y$, $\Psi$ and its partial derivatives are $O[\exp(-\eta^3)]$ as $\eta \to \infty$, uniformly with respect to $x$.
+
+Now let $U$ be a continuous function such that, for some $\epsilon > 0$, $U(\eta) = O[\exp(\eta^{3-\epsilon})]$ as $\eta \to \infty$.
+In $\eta U(\eta)$ is integrable on any finite interval $[0,a]$, then \eqref{3.2} defines for $x > 0$, $y > 0$ a solution of \eqref{2.1}.
+Using \eqref{3.3} standard reasoning shows that if $\eta_0 > 0$
+\begin{equation*}
+	U(\eta_0) = \lim_{(x,y) \to (0,\eta_0)} V(x,y).
+\end{equation*}
+It remains to examine the behavior of $V$ and its derivatives as $y \to 0^+$.
+If $U(\eta) = 0$ in some neighborhood of $0$, then $V$ is of class $C^\infty$ across the $x$-axis and $V(x,0)=0$.
+Therefore it suffices to consider the case when $U(x) = 0$ for all $x$ outside some finite interval $[0,a]$.
+
+Let us assume that $U(\eta) = O(\eta^2) $ as $\eta \to 0^+$. 
+The substitution $\sigma = \tau \eta^3$ shows that
+\begin{align*}
+	& F(x,y,\eta) = \eta^{-2} F(\eta^{-3}x, \eta^{-1}y,1), \\
+	& V(x,y) = \int_0^a F(\eta^{-3}x,\eta^{-1}y,1) \eta^{-1} U(\eta) \dd \eta.
+\end{align*}
+Outside the interval $\frac 12 \leq \eta^{-1} y \leq 2$ the integrand tends uniformly to $0$ as $y \to 0^+$.
+From \eqref{3.3}
+\begin{equation*}
+	|V(x,y)| \leq c_4 \int_{\frac y 2}^{2y} \Omega(\eta^{-3}x,\eta^{-\frac 32}Y) \eta^{\frac 12} \dd \eta + O(1),
+\end{equation*}
+and since $\Omega(\eta^{-3}x,\eta^{-\frac 32}Y) = \eta^{\frac 32} \Omega(x,Y)$, $\dd Y = \eta^{\frac 12} \dd \eta$,
+\begin{equation*}
+	|V(x,y)| \leq c_4 (2y)^{\frac 32} \int_{-\infty}^\infty \Omega(x,Y) \dd Y + O(1).
+\end{equation*}
+Since the last integral is $1$, $V(x,y)$ tends uniformly to $0$ as $y \to 0^+$.
+
+Since $xF_x(x,y,1)$ is bounded on any interval $x \geq \delta > 0$,
+\begin{equation*}
+	V_x = \int_0^a F_x(\eta^{-3}x,\eta^{-1}y,1)\eta^{-4}U(\eta) \dd \eta
+\end{equation*}
+is continuous for $x > 0$, $y \geq 0$.
+Since $V$ satisfies \eqref{2.1}, $V_y$ and $V_{yy}$ are continuous on the $x$-axis for $x > 0$, and
+\begin{equation}
+	V_y(x,0^+) = \int_0^a F_y(\eta^{-3}x,0,1) \eta^{-2} U(\eta) \dd \eta.
+\end{equation}
+From \eqref{3.2bb} $\hat{F}_y(\tau,0,\zeta)$ is a constant times $H(\zeta)$.
+Therefore
+\begin{equation}
+	\label{3.4}
+	V_y(x,0^+) = c_5 \int_0^a g(\eta^{-3}x) \eta^{-2} U(\eta) \dd \eta
+\end{equation}
+where $g$ was defined in \cref{sec2}.
+Since the integrand is bounded and $g(0)=0$, by Lebesgue's convergence theorem $V_y(x,0^+)$ tends to $0$ as $x \to 0^+$.
+For $x > 0$ we have
+\begin{equation*}
+	V_{yx}(x,0^+) = c_5 \int_0^a g'(\eta^{-3}x) \eta^{-5} \dd \eta.
+\end{equation*}
+Making the substitution $r = \eta^{-3}x$ and using the estimate $U(\eta) = O(\eta^2)$
+\begin{equation*}
+	|V_{yx}(x,0^+)| \leq c_6 x^{-\frac 23} \int_0^\infty |g'(r)| r^{-\frac 13} \dd r.
+\end{equation*}
+
+Since
+\begin{equation*}
+	\widehat{xg'} = i\tau \widehat{xg} = \tau H_\tau
+\end{equation*}
+from estimates in \cref{sec2} $xg'$ is integrable; and consequently, $g'x^{-\frac 13}$ is integrable.
+Therefore $x^{\frac 23} V_{yx} (x,0^+)$ is bounded.
+
+\section{}
+\label{sec4}
+
+Let us return to the problem in \cref{sec1}.
+We seek a solution $u$ of \eqref{1.1} in the open strip which is continuous in the closed strip and satisfies the boundary data \eqref{1.2}.
+Let us assume that $U_0$, $U_1$ are continuous, and that the second derivatives $U_0''(0)$, $U_1''(0)$ exist.
+Moreover, for some $\epsilon > 0$
+\begin{align*}
+	U_0(y) & = O[\exp |y|^{3-\epsilon}]
+	&& \text{as } y \to -\infty, \\
+	U_1(y) & =  O[\exp y^{3-\epsilon}]
+	&& \text{as } y \to +\infty.
+\end{align*}
+
+Let $\phi(x)$ be continuous on $[0,1]$ with $\phi(0) = U_0(0)$, $\phi(1) = U_1(0)$, and $\phi'$ continuous on $(0,1)$.
+Using \cref{sec2,sec3} let us find solutions $u^+$, $u^-$ of \eqref{1.1} in the upper and lower halves of the strip, such that
+\begin{gather*}
+		u^+(1,y) = U_1(y), \quad u^-(0,y) = U_0(y), \\
+		u^+(x,0) = u^-(x,0) = \phi(x).
+\end{gather*}
+The linear function $w^+(y) = U_1(0) + U_1'(0)y$ satisfies \eqref{2.1}.
+By \cref{sec3} there is a solution of \eqref{2.1} $V^+(x,y)$ with
+\begin{align*}
+	V^+(0,y) & = U_1(y) - w^+(y), && y \geq 0\\
+	V^+(x,0) & = 0, && x \geq 0.
+\end{align*}
+Let $\psi^+(x) = \phi(1-x)-U_1(0)$ for $0 \leq x \leq 1$, and define $\psi^+$ arbitrarily outside $[0,1]$ subject to the conditions in \cref{sec2}.
+Let $v^+(x,y)$ be the solution of \eqref{2.1} constructed there with $\psi = \psi^+$, and
+\begin{gather*}
+	u^+(x,y) = v^+(1-x,y)+V^+(1-x,y)+w^+(y), \\
+	0 \leq x \leq 1, y \geq 0.
+\end{gather*}
+In the same way we find $v^-$, $V^-$, $w^-$, solutions of \eqref{2.1} in the quadrant $x > 0$, $y > 0$, and set
+\begin{gather*}
+	u^-(x,y) = v^-(x,-y)+V^-(x,-y)+w^-(-y), \\
+	0 \leq x \leq 1, y \leq 0.	
+\end{gather*}
+Let $u = u^+$ for $y \geq 0$ and $u = u^-$ for $y \leq 0$.
+The function $u$ is continuous in the closed strip and satisfies \eqref{1.1} except at $(0,0)$, $(1,0)$.
+Note that for $y = 0$ each term in \eqref{1.1} is $0$.
+
+It remains to choose $\phi$ so that $u_y^+(x,0^+) = u_y^-(x,0^+)$. 
+Therefore we must have
+\begin{equation*}
+	v_y^+(1-x,0^+) = - v_y^-(x,0^+) + \mu(x),
+\end{equation*}
+where
+\begin{equation*}
+	\mu(x) = -[V_y^+(1-x,0^+) + V_y^-(x,0^+) + U_1'(0) - U_0'(0)].
+\end{equation*}
+According to \eqref{2.10}
+\begin{equation*}
+	v^+_y(1-x,0^+) = C_4 \int_0^{1-x} {\psi^+}'(1-x-\xi)^{-\frac 1 3} \dd \xi,
+\end{equation*}
+and since ${\psi^+}'(\xi) = - \phi'(1-\xi)$,
+\begin{equation*}
+	v_y^+(1-x,0^+) = - C_4 \int_x^{1} \phi'(\xi)(\xi-x)^{-\frac 1 3} \dd \xi.
+\end{equation*}
+Similarly
+\begin{equation*}
+	v_y^-(x,0^+) = C_4 \int_0^{x} \phi'(\xi)(x-\xi)^{-\frac 1 3} \dd \xi.
+\end{equation*}
+Therefore, $\phi$ must satisfy the integral equation
+\addtocounter{equation}{1}
+\begin{equation} 
+	\label{4.2}
+	\begin{split}
+		\int_0^{x} \phi'(\xi)(x-\xi)^{-\frac 1 3} \dd \xi
+		= \int_x^{1} \phi'(\xi)(\xi-x)^{-\frac 1 3} \dd \xi + C_4^{-1} \mu(x), \\
+		0 < x < 1.
+	\end{split}
+\end{equation}
+
+Let us treat \eqref{4.2} as a particular case of the equation
+\begin{equation}
+	\label{4.3}
+	\begin{split}
+		\int_0^x f(\xi) (x-\xi)^{\alpha-1} \dd \xi = \int_x^1 f(\xi) (\xi-x)^{\alpha-1} \dd \xi + \int_0^x p(\xi) (\xi-x)^{\alpha-1} \dd \xi, \\
+		0 < x < 1,
+	\end{split}
+\end{equation}
+where $\alpha \in (0,1)$.
+Let us assume that $x^m (1-x)^m p(x)$ is Hölder continuous on $[0,1]$, where
+\begin{equation*}
+	m = \frac{\alpha+1}{2}.
+\end{equation*}
+Notice that except for a factor $\Gamma(\alpha)^{-1}$ the first and last integrals are Riemann-Liouville fractional integrals of order $\alpha$.
+Consider the equation with Cauchy kernel
+\begin{equation}
+	\label{4.4}
+	F(x) - \frac{k}{\pi}\int_0^1 \frac{F(\xi)\dd\xi}{\xi-x} = cP(x),
+\end{equation}
+where $P(x) = x^\alpha p(x)$ and the constants $k,c$ will be chosen later.
+Let $F$ be a solution of \eqref{4.4} such that $x^{\gamma-\alpha}(1-x)^\gamma F(x)$ is Hölder continuous on $[0,1]$ for some $\gamma < 1$.
+Let us show that $f(x) = x^{-\alpha}F(x)$ solves \eqref{4.3}.
+
+Multiplying by $\xi^{-\alpha}(x-\xi)^{\alpha-1}$ and integrating,
+\begin{equation*}
+	\int_0^x (x-\xi)^{\alpha-1} f(\xi) \dd \xi - \frac{k}{\pi} \int_0^x (x-\xi)^{\alpha-1} \xi^{-\alpha} \int_0^1 \frac{F(\eta) \dd \eta}{\eta-\xi} = c \int_0^x (x-\xi)^{\alpha-1} p(\xi) \dd \xi.
+\end{equation*}
+Near $0$ the inner integral defines a function of the form $a\xi^{\alpha-\gamma} + b\xi^{\alpha-\lambda}\chi(\xi)$, where $\lambda > \Gamma$ and $\chi$ is Hölder continuous \cite[p.\ 75]{Mu}.
+Let us write the inner integral on the left as the sum of integrals from $0$ to $x$ and from $x$ to $1$, and interchange the order of integration.
+The second of these iterated integrals is absolutely convergent.
+The interchange of order $\int_0^x \dotsc \dd \xi \int_0^x \dotsc \dd\eta  = \int_0^x \dotsc \dd \eta \int_0^x \dotsc \dd\xi$ is easily justified if $F$ is Hölder continuous on $[0,x]$, and then by a passage to the limit argument for $F$ satisfying the present assumptions.
+
+Making the substitutions
+\begin{gather*}
+	x =\frac{1}{1+t}, \quad \xi = \frac{1}{1+s}, \quad \eta = \frac{1}{1+r}, \\
+	\int_0^x \frac{\xi^{-\alpha}(x-\xi)^{\alpha-1}}{\eta-\xi} \dd \xi = \frac{r+1}{(t+1)^{\alpha-1}} \int_t^{\infty} \frac{(s-t)^{\alpha-1}}{s-r} \dd s.
+\end{gather*}
+If $x < \eta < 1$ (i.e.\ $r < t$), the substitution $s-t=(t-r)q$ shows that
+\begin{equation*}
+	\int_t^{\infty} \frac{(s-t)^{\alpha-1}}{s-r} \dd s
+	= (t-r)^{\alpha-1} \int_0^\infty \frac{q^{\alpha-1}\dd q}{q+1} 
+	= (t-r)^{\alpha-1} \frac{\pi}{\sin \pi \alpha}.
+\end{equation*}
+If $0 < \eta < x$, the substitution $s-t=(r-t)q$ shows that
+\begin{equation*}
+	\int_t^{\infty} \frac{(s-t)^{\alpha-1}}{s-r} \dd s
+	= (r-t)^{\alpha-1} \int_0^\infty \frac{q^{\alpha-1}\dd q}{q-1} 
+	= -(r-t)^{\alpha-1} \pi \cot \pi \alpha.
+\end{equation*}
+The value $-\pi\cot\pi\alpha$ for the last integral may be found by contour integration.
+Bu
+\begin{equation*}
+	\frac{(r+1)(r-t)^{\alpha-1}}{(t+1)^{\alpha-1}}=(x-\eta)^{\alpha-1}\eta^{-\alpha},
+\end{equation*}
+and hence
+\begin{gather*}
+	\int_{0}^{x} \phi(\eta) \dd\eta \int_{0}^{x} \frac{(x-\xi)^{\alpha-1} \xi^{-\alpha}}{\eta-\xi} \dd\xi=-\pi \cot \pi \alpha \int_{0}^{x}(x-\eta)^{\alpha-1}+f(\eta) \dd\eta, \\
+	\int_{x}^{1} \phi(\eta) \dd\eta \int_{0}^{x} \frac{(x-\xi)^{\alpha-1} \xi^{-\alpha}}{\eta-\xi} \dd\xi=\frac{\pi}{\sin \pi \alpha} \int_{x}^{1}(\eta-x)^{\alpha-1} f(\eta) \dd\eta, \\
+	\begin{split}
+		(1+k \cot \pi \alpha) \int_{0}^{x}(x-\xi)^{\alpha-1} f(\xi) \dd\xi=\frac{k}{\sin \pi \alpha} & \int_{0}^{1}(\xi-x)^{\alpha-1} f(\xi) \dd\xi
+		\\ & +c \int_{0}^{x}(x-\xi)^{\alpha-1} p(\xi) \dd\xi.
+	\end{split}
+\end{gather*}
+If we take
+\begin{equation*}
+	k=\frac{\sin \pi \alpha}{1-\cos \pi \alpha}=-\tan \pi m,
+\end{equation*}
+and $\mathrm{c}^{-1}=1-\cos \pi \alpha$, then $f$ is a solution of \eqref{4.3}.
+It is known \cite[p.\ 130]{M} that
+\begin{equation*}
+	\begin{split}
+		F(x)=\frac{c}{1+k^{2}} P(x)+\frac{k c}{\left(1+k^{2}\right) \pi} x^{m-1}(1-x)^{-m} &\int_{0}^{1} \frac{\xi^{1-m}(1-\xi)^{m} P(\xi) \dd\xi}{\xi-x} \\
+		&+b x^{m-1}(1-x)^{-m}
+	\end{split}
+\end{equation*}
+is a solution of \eqref{4.4}, where $b$ is an arbitrary constant. 
+Since $\alpha-m=m-1$,
+\begin{equation}
+	\label{4.5}
+	\begin{split}
+		f(x)=\frac{c}{1+k^{2}} p(x)+\frac{k c}{(1+k^{2}) \pi} x^{-m}(1-x)^{-m} &\int_{0}^{1} \frac{\xi^{m}(1-\xi)^{m} p(\xi) \dd\xi}{\xi-x} \\
+		&+b x^{-m}(1 - x)^{-m}
+	\end{split}
+\end{equation}
+is a solution of \eqref{4.3}.
+The assumption made about $F$ above is satisfied for any $\gamma > m$.
+
+P.\ M.\ Anselone pointed out that the solution $f(x) = b x^{-m} (1-x)^{-m}$ of the homogeneous form of \eqref{4.3} can be verified directly.
+Let $A(x)$ denote the left side of \eqref{4.3}.
+When $f(x) = f(1-x)$ and $p(x)=0$, \eqref{4.3} becomes $A(x) = A(1-x)$.
+Let us suppose that $f$ has this special form.
+By writing $A(x)$ as an integral in $s$ on $(0,\infty)$ as before and making the substitution $\sigma = (s-t)/t$,
+\begin{equation*}
+	A(x) = b B(m-\alpha,\alpha) x^{m-1}(1-x)^{m-1},
+\end{equation*}
+which is symmetric in $x$ and $1-x$.
+
+In the present problem $\alpha = 2/3$, $m = 5/6$, $f(x) = \phi'(x)$ and $p(x)$ is $[C_4 \Gamma(\alpha)]^{-1}$ times the fractional derivative of order $2/3$ of $\mu(x)$.
+Then
+\begin{equation*}
+	p(x) = [C_4 \Gamma(\alpha)]^{-1} I_{\frac 1 3} \mu'(x),
+\end{equation*}
+where $I_{1-\alpha}$ is the integral of order $1-\alpha$.
+From the estimate for $V_{yx}(x,0^+)$ at the end of \cref{sec3},
+\begin{equation*}
+	|\mu'(x)| \leq C x^{-\frac 23} (1-x)^{-\frac 23},
+\end{equation*}
+and from this it is not difficult to show that $x^m (1-x)^m p(x)$ is Hölder continuous.
+The constant $b$ in \eqref{4.5} is determined from the condition 
+\begin{equation*}
+	U_1(0)-U_0(0) = \int_0^1 \phi'(x) \dd x.
+\end{equation*}
+
+In particular let $U_1(y) = 1$, $U_0(0) = 0$.
+Then $u(x,y)$ represents the probability of reaching $1$ before $0$ starting at $x$ with velocity $y$.
+In this case $\mu(x) = 0$ and
+\begin{equation*}
+	\phi'(x) = b x^{-\frac 56} (1-x)^{-\frac 56},
+	\quad 
+	b^{-1} = B\left(\frac56,\frac56\right).
+\end{equation*}
+
+\section{}
+\label{sec5}
+
+Let us now prove a uniqueness theorem.
+Let $u_1(x,y)$ and $u_2(x,y)$ be two solutions of \eqref{1.1} with the same boundary data \eqref{1.2}, and let $w = u_1-u_2$.
+Let us assume that $w$ is bounded and continuous in the closed strip and that $w_y$ is square integrable over the strip.
+Then for any rectangle $R : 0 \leq x \leq 1$, $|y| \leq a$,
+\begin{equation*}
+	0 = \iint_R w (yw_x + w_{yy}) \dd x  \dd y
+	= - \iint_R w_y^2 \dd x \dd y
+	+ \int_{\partial R} \left( \frac 12 y w^2 \dd y - w w_y \dd x \right),
+\end{equation*}
+and since $w_y^2$ is integrable there exist $a_n$, $n = 1,2, \dotsc$ tending to $\infty$ such that $\int_{\partial R_n} w w_y \dd x$ tends to $0$.
+Moreover $\int_{\partial R_n} \frac 12 y w^2 \dd y \leq 0$ since $w(1,y) = 0$ for $y > 0$ and $w(0,y) = 0$ for $y < 0$.
+From this
+\begin{equation*}
+	\iint_R w_y^2 \dd x \dd y = 0,
+\end{equation*}
+and then $w_y \equiv 0$.
+Then $-y w_x = w_{yy} = 0$, and since every horizontal line has a point where $w = 0$, $w \equiv 0$.
+
+\section{}
+\label{sec6}
+
+Let us mention a more general problem in which the random process $\xi$ satisfies (formally) the linear constant-coefficient stochastic differential equation
+\begin{equation}
+	\label{6.1}
+	\ddot{\xi} + a \dot{\xi} + b \xi = \dot{\rho},
+	\quad 
+	a \geq 0, \quad b \geq 0,
+\end{equation}
+where $\rho(t)$ is a Brownian motion process normalized in the same way as \cref{sec1}.
+In engineering language $\dot{\rho}(t)$ is a ``white noise''.
+The steady state form of the backward equation for the vector Markov process $(\xi(t), \dot{\xi}(t))$ is now
+\begin{equation}
+	\label{6.2}
+	y u_x + u_{yy} - (ay+bx) u_y = 0.
+\end{equation}
+We have considered the case $a=b=0$.
+When $a > 0$, $b = 0$, \eqref{6.1} describes the Ornstein-Uhlenbeck process, which is a more refined model for Brownian motion.
+When $a = 0$, $b > 0$, \eqref{6.1} describes a randomly accelerated harmonic oscillator.
+See the articles in \cite{W} by Chandrasekhar, Uhlenbeck-Ornstein and Wang-Uhlenbeck.
+
+The equation $-yv_x+v_{yy}=f(x,y)$ has under suitable assumptions on $f$, the particular solution in the quarter-plane $x > 0$, $y> 0$
+\begin{equation*}
+	v_p(x,y) = \int_0^x \int_0^\infty F(x-\xi,y,\eta) f(\xi,\eta) \dd \eta \dd \xi
+\end{equation*}
+which is $0$ when $y = 0$ or $x = 0$.
+Suppose that $u$ satisfies \eqref{6.2} in the strip and take $f(x,y) = [ay + b(1-x)] u_y(1-x,y)$.
+Then if $\phi(x)=u(x,0)$,
+\begin{equation*}
+	u(1-x,y) = \phi(1-x) * g_a + V^+(x,y) + w^+(y) + v_p(x,y).
+\end{equation*}
+Integrating by parts (formally) we obtain for $0 < x < 1$, $y \geq 0$,
+\begin{equation*}
+	\begin{split}
+		u(1-x,y) = \phi(1-x) * g_a & + V^+(x,y) + w^+(y) \\
+		& - \int_0^x \int_0^\infty [a\eta+b(1-\xi)F]_\eta u(1-\xi,\eta) \dd \eta \dd \xi
+	\end{split}
+\end{equation*}
+with a similar expression for $u(x,-y)$.
+From these two integral equations for $u$, together with the equation obtained by matching $u_y(x,0^+)$ and $u_y(x,0^-)$ one should be able to get some information about solutions of \eqref{6.2} at least for small values of $a$ and $b$.
+
+\begin{thebibliography}{ZZZZ}
+	\bibitem[D]{D}
+	J.\ L.\ Doob,
+	Stochastic Processes,
+	Wiley,
+	1953
+	
+	\bibitem[F]{F}
+	G.\ Fichera,
+	On a unified theory of boundary value problems for elliptic-parabolic equations of second order,
+	Proceedings of an International Conference conducted by the Mathematics Research Center, 
+	U.S.\ Army, University of Wisconsin, Madison, Wisconsin,
+	June 1960
+	
+	\bibitem[HL]{HL}
+	G.\ H.\ Hardy and J.\ E.\ Littlewood, 
+	Some properties of fractional integrals~I, 
+	Math Zeit.\ 27 (1928), pp.\ 565-606.
+	
+	\bibitem[L]{L}
+	M.\ J.\ Lighthill, 
+	Introduction to Fourier Analysis and Generalized Functions, 
+	Cambridge,
+	1958
+	
+	\bibitem[M]{M}
+	S.\ G.\ Mikhlin,
+	Integral Equations (translated from the Russian),
+	Pergamon Press, 
+	1957
+	
+	\bibitem[Mu]{Mu}
+	N.\ I.\ Muskhelishvili,
+	Singular Integral Equations (translated from the Russian),
+	Noordhoff,
+	1953
+	
+	\bibitem[PW]{PW}
+	R.\ Paley, N.\ Wiener,
+	Fourier transforms in the complex domain,
+	American Mathematical Society,
+	1934
+
+	\bibitem[S]{S}
+	L.\ Schwartz, Th\'eorie des Distributions, vol.\ 2, Actualit\'es Sci.\ Ind.\ 1122, Hermann, 1951
+
+	\bibitem[W]{W}
+	N.\ Wax (editor),
+	Selected Papers on Noise and Stochastic Processes,
+	Dover, 
+	1954
+	
+	\bibitem[WW]{WW}
+	E.\ T.\ Whittaker and G.\ N.\ Watson,
+	Modern Analysis (1915 ed.),
+	Cambridge
+	
+	\bibitem[Z]{Z}
+	A.\ Zygmund, 
+	Trigonometrical Series,
+	Dover,
+	1935 ed.
+\end{thebibliography}
+
+
+\end{document}
