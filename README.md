@@ -24,4 +24,5 @@ Please feel free to contribute by adding other new papers or correcting typos in
 - [**Pennisi**, Elementary proof that e is irrational](pdf/Pennisi-1953.pdf), 1953
 - [**Reutenauer**, The local realization of generating series of finite Lie rank](pdf/Reutenauer-1986.pdf), 1986
 - [**Robbins**, A remark on Stirling's formula](pdf/Robbins-1955.pdf), 1955
+- [**Stefani**, On the local controllability of a scalar-input control system](pdf/Stefani-1986.pdf), 1986
 - [**Sussmann**, A product expansion of the Chen series](pdf/Sussmann-1986.pdf), 1986
