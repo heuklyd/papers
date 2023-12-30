@@ -19,6 +19,7 @@ Please feel free to contribute by adding other new papers or correcting typos in
 - [**Fleming**, A problem of random accelerations](pdf/Fleming-1963.pdf), 1963
 - [**Gorkov**, A formula for the solution of a boundary value problem for the stationary equation of Brownian motion](pdf/Gorkov-1975.pdf), 1975
 - [**Jakubczyk, Respondek**, On linearization of control systems](pdf/Jakubczyk-Respondek-1980.pdf), 1980
+- [**Kirillov, Ovskienko, Udalova**, Identities in the Lie Algebra of Vector Fields on the Real Line](pdf/Kirillov-Ovsienko-Udalova-1984), 1984
 - [**Niven**, A simple proof that pi is irrational](pdf/Niven-1947.pdf), 1947
 - [**Pagani**, On forward-backward parabolic equations in bounded domains](pdf/Pagani-1976.pdf), 1976
 - [**Pennisi**, Elementary proof that e is irrational](pdf/Pennisi-1953.pdf), 1953
