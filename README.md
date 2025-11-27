@@ -23,6 +23,7 @@ Please feel free to contribute by adding other new papers or correcting typos in
 - [**Niven**, A simple proof that pi is irrational](pdf/Niven-1947.pdf), 1947
 - [**Pagani**, On forward-backward parabolic equations in bounded domains](pdf/Pagani-1976.pdf), 1976
 - [**Pennisi**, Elementary proof that e is irrational](pdf/Pennisi-1953.pdf), 1953
+- [**Remes**, Sur une propriété extrémale des polynômes de Tchebychef](pdf/Remes-1936.pdf), 1936
 - [**Reutenauer**, The local realization of generating series of finite Lie rank](pdf/Reutenauer-1986.pdf), 1986
 - [**Robbins**, A remark on Stirling's formula](pdf/Robbins-1955.pdf), 1955
 - [**Stefani**, On the local controllability of a scalar-input control system](pdf/Stefani-1986.pdf), 1986

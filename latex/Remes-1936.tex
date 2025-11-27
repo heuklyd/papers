@@ -1,0 +1,134 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+
+\title{Sur une propriété extrémale \\ des polynômes de Tchebychef}
+\date{}
+\author{\textsc{Eugène Remes (Kiev)}}
+
+\begin{document}
+	
+	\maketitle
+	
+	Etant donnés un intervalle (fermé) $S \equiv \langle a, b \rangle$ de longueur $b - a = l$ sur l'axe $OX$ et deux nombres positifs $\lambda = \theta l$, $(0 < \theta < 1)$ et $k$, nous considérons le problème suivant:\footnote{L'auteur a rencontré ce problème au cours de ses recherches sur la convergence de certains procédés d'approximations successives qu'il a proposés récemment pour le calcul effectif des polynômes d'approximation minimum d'une fonction bornée $f(x)$ sur un ensemble de points pareillement borné (cf.\ ma note, Comptes Rendus, Paris, 30. VII. 1934 et surtout ma monographie en langue ukrainienne: \guillemotleft Sur les méthodes pour réaliser la meilleure approximation des fonctions d'après le principe de Tchebychef \guillemotright, Acad.\ des Sc.\ d'Ukraine, 1935, pp.\ 99--100).}
+	
+	\emph{Déterminer la borne supérieure exacte de la quantité [variable avec $P_n(x)$]
+	\begin{equation}
+		\label{eq:1}
+		\max_{a \le x \le b} |P_n(x)|
+	\end{equation}
+	$P_n(x)$ désignant un polynôme de degré $\le n$ assujetti à la seule condition de vérifier l'inégalité
+	\begin{equation}
+		\label{eq:2}
+		|P_n(x)| \le k
+	\end{equation}
+	sur un ensemble de points (d'ailleurs indéterminé) $E \subset S$ de mesure $\ge \lambda$.}
+	
+	Nous allons montrer que \emph{la borne supérieure en question a pour valeur exacte}
+	\begin{equation}
+		\label{eq:3}
+		M = k T_n \left( \frac{2l}{\lambda} - 1 \right) = k T_n \left( \frac{2}{\theta} - 1 \right),
+	\end{equation}
+	où $T_n$ est le \emph{polynôme trigonométrique} de degré $n$ :
+	\begin{equation}
+		\label{eq:4}
+		T_n(z) = \frac{1}{2} \{(z + \sqrt{z^2 - 1})^n + (z - \sqrt{z^2 - 1})^n\}.
+	\end{equation}
+	
+	\textbf{Démonstration.} D'abord, comme on le vérifie immédiatement la quantité \eqref{eq:1} atteint exactement la valeur \eqref{eq:3} pour les deux \emph{polynômes de Tchebychef}
+	\begin{equation}
+		\label{eq:5}
+		P_{n,1}(x) = k T_n \left( \frac{2x - a - (a + \lambda)}{\lambda} \right)
+	\end{equation}
+	et
+	\begin{equation}
+		\label{eq:6}
+		P_{n,2}(x) = k T_n \left( \frac{2x - (b - \lambda) - b}{\lambda} \right),
+	\end{equation}
+	qui vérifient bien la condition \eqref{eq:2}, l'un sur l'intervalle $\langle a, a+\lambda \rangle$, l'autre sur l'intervalle $\langle b-\lambda, b \rangle$. 
+	Il reste à démontrer qu'entre tous les polynômes $P_n(x)$ admissibles les deux polynômes \eqref{eq:5} et \eqref{eq:6} sont les \emph{seuls} (abstraction faite d'un facteur $\pm 1$), pour lesquels la quantité \eqref{eq:1} atteint la valeur \eqref{eq:3}.
+	
+	Soit $P_n(x)$ un polynôme admissible quelconque différent de \eqref{eq:5} et \eqref{eq:6}; soit $E \subset S$ l'ensemble de points, sur lequel l'inégalité \eqref{eq:2} est vérifiée. Cet ensemble de points se compose évidemment d'un certain nombre $\nu \le n$ d'intervalles fermés dont quelques-uns peuvent se réduire à un point. Soient
+	\begin{equation}
+		\label{eq:7}
+		\sigma_1 \equiv \langle \alpha_1, \beta_1 \rangle, \quad 
+		\sigma_2 \equiv \langle \alpha_2, \beta_2 \rangle, \quad \dots, \quad
+		\sigma_m \equiv \langle \alpha_m, \beta_m \rangle
+	\end{equation}
+	ceux d'entre eux ($m \le \nu$) qui ont une longueur non nulle, arrangés par ordre d'abscisses croissantes. Soit ensuite $\xi \in S$ un des points pour lesquels $|P_n(x)|$ acquiert sa valeur maximum sur l'intervalle $\langle a, b \rangle$:
+	\begin{equation}
+		\label{eq:8}
+		|P_n(\xi)| = \max_{a \le x \le b} |P_n(x)|.
+	\end{equation}
+	
+	Il faut démontrer que $|P_n(\xi)| < M$, $M$ désignant la valeur \eqref{eq:3}.
+	
+	Ici trois cas sont à distinguer, suivant que
+	\begin{equation}
+		\label{eq:9}
+		\xi > \beta_m, \quad \xi < \alpha_1 \quad \text{ou enfin} \quad \beta_i < \xi < \alpha_{i+1}
+	\end{equation}
+	$i$ désignant dans le dernier cas un des nombres $1, 2, \dots, m-1$.
+	
+	Commençons par considérer \emph{le premier cas}. Désignons par $x_1 = a, x_2, x_3, \dots, x_{n+1} = a + \lambda$ les points de l'intervalle $\langle a, a+\lambda \rangle$, auxquels le polynôme de Tchebychef \eqref{eq:5} acquiert avec alternance de signe la valeur $\pm k$. Désignons, d'autre part, par $\bar{x}_1, \bar{x}_2, \dots, \bar{x}_{n+1}$ les $n+1$ points que nous prendrons sur l'ensemble de points $E$ sous les conditions suivantes: d'abord, $\bar{x}_1 = x_1$; puis, pour $i = 2, 3, \dots, n+1$ soit $\bar{x}_i$ le premier des points de $E$ (en parcourant cet ensemble de points de gauche à droite) pour lequel
+	\begin{equation}
+		\label{eq:10}
+		\text{mes} (\langle \bar{x}_1, \bar{x}_i \rangle \cdot E) = x_i - x_1
+	\end{equation}
+	le produit entre parenthèses désignant l'ensemble des points qui appartiennent à la fois à l'intervalle $\langle \bar{x}_1, \bar{x}_i \rangle$ et à l'ensemble de points $E$.
+	
+	En appliquant la formule d'interpolation de Lagrange, une fois au polynôme \eqref{eq:5} et l'autre fois au polynôme $P_n(x)$, nous pourrons écrire les deux égalités suivantes:
+	\begin{equation}
+		\label{eq:11}
+		M = P_{n,1}(b) = \sum_{i=1}^{n+1} \frac{(b-x_1)\dots(b-x_{i-1})(b-x_{i+1})\dots(b-x_{n+1})}{(x_i-x_1)\dots(x_i-x_{i-1})(x_i-x_{i+1})\dots(x_i-x_{n+1})} P_{n,1}(x_i)
+	\end{equation}
+	\begin{equation}
+		\label{eq:12}
+		P_n(\xi) = \sum_{i=1}^{n+1} \frac{(\xi-\bar{x}_1)\dots(\xi-\bar{x}_{i-1})(\xi-\bar{x}_{i+1})\dots(\xi-\bar{x}_{n+1})}{(\bar{x}_i-\bar{x}_1)\dots(\bar{x}_i-\bar{x}_{i-1})(\bar{x}_i-\bar{x}_{i+1})\dots(\bar{x}_i-\bar{x}_{n+1})} P_n(\bar{x}_i)
+	\end{equation}
+	
+	En comparant leurs parties droites terme à terme, on constate les relations suivantes:
+	\begin{itemize}
+		\item[$\alpha$)] $|P_{n,1}(x_i)| = k; \quad |P_n(\bar{x}_i)| \le k$
+		\item[$\beta$)] $b - x_j \ge \xi - \bar{x}_j \ge 0$
+		\item[$\gamma$)] $|x_i - x_j| \le |\bar{x}_i - \bar{x}_j|$
+		\quad $(i, j = 1, 2, \dots, n+1; \ j \ne i)$.
+	\end{itemize}
+	
+	En outre, on voit aisément que les $n+1$ termes à la dernière partie de \eqref{eq:11} \emph{ont tous le même signe} (à savoir $+$), ce qui ne doit pas avoir lieu forcément dans \eqref{eq:12}. Ainsi on aura bien
+	$$ |P_n(\xi)| < M $$
+	à moins que $P_n(x)$ ne soit identique à $\pm P_{n,1}(x)$.
+	
+	Dans le \emph{second cas} \eqref{eq:9}, c'est à dire lorsque $\xi < \alpha_1$, le raisonnement est tout-à-fait analogue, en remplaçant le polynôme \eqref{eq:5} par \eqref{eq:6}
+	
+	\emph{Enfin} lorsqu'on a dans \eqref{eq:9}
+	\begin{equation}
+		\beta_i < \xi < \alpha_{i+1}
+	\end{equation}
+	posons :
+	\begin{equation}
+		\frac{\text{mes}(\langle a, \xi \rangle \cdot E)}{\xi - a} = \theta_1
+	\end{equation}
+	\begin{equation}
+		\frac{\text{mes}(\langle \xi, b \rangle \cdot E)}{b - \xi} = \theta_2.
+	\end{equation}
+	
+	Il est clair que les deux nombres $\theta_1$ et $\theta_2$ ne peuvent être \emph{à la fois} moindres à $\theta = \frac{\lambda}{l}$. Or, en remplaçant dans les raisonnements précédents l'intervalle $\langle a, b \rangle$ une fois par $\langle a, \xi \rangle$ et l'autre fois par $\langle \xi, b \rangle$, on a \emph{simultanément}
+	\begin{equation}
+		\left.
+		\begin{aligned}
+			|P_n(\xi)| &< k T_n \left( \frac{2}{\theta_1} - 1 \right) \\
+			|P_n(\xi)| &< k T_n \left( \frac{2}{\theta_2} - 1 \right)
+		\end{aligned}
+		\quad \right\}
+	\end{equation}
+	et \emph{une} des parties droites est certainement $\le M$, ce qui achève la démonstration.
+	
+	Nous avons obtenu simultanément une démonstration simple d'un théorème connu dû à \emph{Tchebychef}\footnote{\emph{P.\ L.\ Tchebychef}, \guillemotleft Sur les fonctions qui s'écartent peu de zéro pour certaines valeurs de la variable\guillemotright, Oeuvres, tome 2, pp.\ 335--355.}, qui découle de nos raisonnements lorsqu'on restreint \emph{a priori} le champ des polynomes admissibles\footnote{A savoir, en posant \emph{a priori} $E = \langle a, a+\lambda \rangle$ ou bien $E = \langle b-\lambda, b\rangle$.}.
+	
+\end{document}
