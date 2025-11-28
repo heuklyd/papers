@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt,leqno]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+
+\title{Sur une propriété des fonctions entières}
+\date{}
+\author{Note de \textbf{M.\ Serge Bernstein}, présentée par M.\ \'Emile Borel}
+
+\begin{document}
+	
+	\maketitle
+	
+	\noindent \textbf{1.} Soit
+	\begin{equation*}
+		f(x) = A_0 + A_1 x + \ldots + A_n x^n + \ldots
+	\end{equation*}
+	une fonction entière, jouissant de la même propriété que la limite supérieure
+	\begin{equation}
+		\label{eq:1}
+		\overline{\lim_n} \sqrt[n]{|A_n|} \leqq \rho.
+	\end{equation}
+	Je dis que, \textit{si l'on a pour toute valeur réelle\footnote{Au lieu de l'axe réel, on pourrait prendre n'importe quelle droite déterminée.} de $x$}
+	\begin{equation}
+		\label{eq:2}
+		|f(x)| \leqq M,
+	\end{equation}
+	\textit{on aura aussi pour toute valeur réelle de $x$}
+	\begin{equation}
+		\label{eq:3}
+		|f'(x)| \leqq \frac{\rho}{e} M.
+	\end{equation}
+	
+	D'ailleurs, la limite donnée par \eqref{eq:3} est effectivement atteinte par la fonction $M \sin \frac{\rho x}{e}$.
+	
+	La démonstration repose sur les considérations suivantes. 
+	Disons, pour abréger, qu'une fonction satisfaisant à la condition \eqref{eq:1} est de \textit{degré} non supérieur à $\rho$. 
+	Cela étant, il est évident que le degré ne dépend pas du choix de l'origine. 
+	On est ainsi amené à démontrer que $\frac{e}{\rho} \sin \frac{\rho x}{e}$ est la fonction de degré non supérieur à $\rho$ qui s'écarte le moins possible de O sur l'axe réel entre toutes celles qui satisfont à la condition $f'(0) = 1$. 
+	Or, pour le prouver, il suffit de reconnaître qu'il ne peut exister de fonction $\varphi(x)$ impaire de degré $\rho$ qui soit bornée sur l'axe réel, telle que $\varphi'(0) = 0$, et qui, aux points où $\cos \frac{\rho x}{e} = 0$, prenne des valeurs de signes successivement opposés.
+	
+	\medskip
+	
+	\noindent \textbf{2.} Il est facile de déduire du théorème énoncé la proposition suivante :
+	
+	\noindent \textit{Soit}
+	\begin{equation*}
+		f(x) = A_0 + A_1 \cos \alpha_1 x + B_1 \sin \alpha_1 x + \ldots + A_n \cos \alpha_n x + B_n \sin \alpha_n x,
+	\end{equation*}
+	\textit{où $\alpha_n > \alpha_i$ (pour $n > i$), et un au moins des nombres $A_n, B_n$ est différent de $0$; si pour toute valeur réelle $|f(x)| \leqq L$, on a également $|f'(x)| \leqq \alpha_n L$.}
+	
+	En effet, cela résulte du fait que $f(x)$ est de degré $\alpha_n e$.
+	
+	Cette proposition est une généralisation du théorème que j'ai donné autrefois\footnote{Dans mon Mémoire \textit{Sur l'ordre de la meilleure approximation, etc.}, je n'avais considéré que le cas où les $\cos$ et $\sin$ n'interviennent pas simultanément, mais M.\ Landau, dès l'année 1913, a fait la remarque que le cas général (pour $\alpha_i$ entier) est une conséquence immédiate de celui où les sinus interviennent seulement.} pour le cas où les nombres $\alpha_i$ sont des entiers.
+	
+	Comme seconde conséquence de notre théorème, indiquons la suivante :
+	
+	\noindent \textit{Si}
+	\begin{equation*}
+		f(x) = \sum_{0}^{\infty} \frac{c_n}{n!} x^n, \quad \text{où} \quad \overline{\lim_n} \sqrt[n]{|c_n|} = R,
+	\end{equation*}
+	\textit{la fonction $f(x)$ ne peut rester bornée sur aucune droite passant par l'origine, si $\frac{c_n}{R^n}$ n'est pas borné.}
+	
+	\medskip
+	
+	\noindent \textbf{3.} Il est évident, enfin, que l'étude de l'approximation des fonctions continues au moyen des fonctions de degrés finis sur l'axe réel conduit, grâce au théorème 1, à des résultats analogues à ceux que j'ai donnés dans le Mémoire cité relativement à l'existence des dérivées successives pour les fonctions périodiques. 
+	Ainsi, soit $|f(x) - f_n(x)| < \varepsilon_n$ sur tout l'axe réel, où $f_n(x)$ est une fonction de degré $\rho_n$. 
+	\textit{Si l'on peut former une suite de fonctions $f(x)$ de degrés $\rho_n$ croissants, telle que $\sum_{n=1}^{\infty} \varepsilon_n \rho_{n+1}^p$ soit convergente, la fonction $f(x)$ admet des dérivées continues sur tout l'axe réel jusqu'à l'ordre $p$ inclusivement.}
+	En particulier, il en sera ainsi si l'on peut choisir les nombres $\rho_n$ de sorte que $1 < a < \frac{\rho_{n+1}}{\rho_n} < b$, pour lesquels l'approximation correspondante $\varepsilon_n < \frac{1}{\rho_n^{p+\delta}}$, où $\delta > 0$.
+	
+	D'autre part, \textit{si $f(x)$ peut être indéfiniment approchée sur tout l'axe réel au moyen de fonctions $f_n(x)$ de degrés bornés, la fonction $f(x)$ est elle-même nécessairement entière et de degré fini.} (Au contraire, il résulte d'un théorème que j'ai donné dans le Mémoire cité que toute fonction continue quelconque qui à l'infini tend vers une limite déterminée peut être approchée indéfiniment par des fonctions entières de degrés bornés sur le \textit{demi}-axe réel.)
+
+	
+	
+\end{document}

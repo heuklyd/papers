@@ -14,6 +14,7 @@ Please feel free to contribute by adding other new papers or correcting typos in
 
 ## Current papers list 
 
+- [**Bernstein**, Sur une propriété des fonctions entières](pdf/Bernstein-1923.pdf), 1923
 - [**Coulhon**, Suites d'opérateurs sur un espace C(K) de Grothendieck](pdf/Coulhon-1984.pdf), 1984
 - [**Fichera**, On a unified theory of boundary value problems for elliptic-parabolic equations of second order](pdf/Fichera-1960.pdf), 1960
 - [**Fleming**, A problem of random accelerations](pdf/Fleming-1963.pdf), 1963
